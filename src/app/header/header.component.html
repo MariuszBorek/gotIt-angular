@@ -1,0 +1,10 @@
+<header>
+    <p>Header</p>
+    <nav>
+        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a>
+        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/registration" class="nav-link">register</a>
+        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/userprofile" class="nav-link">My Profile</a>
+        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
+    </nav>
+</header>
