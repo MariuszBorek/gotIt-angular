@@ -1,0 +1,80 @@
+<div id="container">
+
+    <div id="categories">
+        <div id="categories-block">
+
+        </div>
+        <div>
+            <button class="category-button">Elektronika</button>
+        </div>
+        <div>
+            <button class="category-button">Moda</button>
+        </div>
+        <div>
+            <button class="category-button">Dom i ogród</button>
+        </div>
+        <div>
+            <button class="category-button">Superma</button>
+        </div>
+        <div>
+            <button class="category-button">Dziecko</button>
+        </div>
+        <div>
+            <button class="category-button">Uroda</button>
+        </div>
+        <div>
+            <button class="category-button">Zdrowie</button>
+        </div>
+        <div>
+            <button class="category-button">Kultura i rozrywka</button>
+        </div>
+        <div>
+            <button class="category-button">Sport i turystyka</button>
+        </div>
+        <div>
+            <button class="category-button">Motoryzajca</button>
+        </div>
+        <div>
+            <button class="category-button">Nieruchomości</button>
+        </div>
+        <div>
+            <button class="category-button">Kolekcje i sztuka</button>
+        </div>
+        <div>
+            <button class="category-button">Firma i usługi</button>
+        </div>
+        <div id="categories-block">
+
+        </div>
+    </div>
+
+    <div class="user-auctions__greeting">
+        <div id="greeting">Hello!</div>
+    </div>
+
+
+    <div class="user-auctions" *ngIf="authenticationService.isUserLoggedIn();">
+        <div class="user-auctions__block">
+            <p>lista ostatnio dodanych aukcji</p>
+        </div>
+
+        <div class="user-auctions__block">
+            <p>lista kończących sięaukcji aukcji</p>
+        </div>
+
+        <div class="user-auctions__block">
+            <p>lista aukcji któreliczytuje zalogowany uzytkownik</p>
+        </div>
+
+        <div class="user-auctions__block">
+            <p>obserwowane aukcje</p>
+        </div>
+
+        <div class="user-auctions__block">
+            <p>własnie zakonczone</p>
+        </div>
+    </div>
+
+    <div style="clear: both;"></div>
+
+</div>

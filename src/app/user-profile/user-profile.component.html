@@ -1,13 +1,37 @@
-<p>user-profile works!</p>
-<div>
-    <button (click)="getData()">moje dane</button>
+<div id="container">
 
-    <div *ngIf="userData; then thenBlock else elseBlock"></div>
+    <div id="login-inputs">
 
-    <ng-template #thenBlock>
-        <span>{{ userData.name }} / {{ userData.surname }} / {{ userData.email }} </span>
-    </ng-template>
+        <div class="nav-profile">
+            <button class="nav-profile__button" (click)="getData()">profile</button>
+            <button class="nav-profile__button" (click)="getData()">set an auction</button>
+        </div>
 
-    <ng-template #elseBlock></ng-template>
+        <div class="data-container" *ngIf="userData;">
+            <div class="profile-descript">profile</div>
+
+            <div class="data-changeable">
+                <input type="text" placeholder="name" name="name" [(ngModel)]="userData.name">
+                <input type="text" placeholder="surname" name="surname" [(ngModel)]="userData.surname">
+                <input type="text" placeholder="email" name="email" [(ngModel)]="userData.email">
+                <input type="password" placeholder="password" name="password" [(ngModel)]="userData.password">
+                <button class="update-buttom" (click)="updateUserData()">update</button>
+
+            </div>
+
+            <div class="data-unchangeable">
+                <div class="data-unchangeable__desc">account creation date: {{ userData.accountCreationDate }}</div>
+                <div class="data-unchangeable__desc">account description: {{ userData.accountDescription }}</div>
+                <div class="data-unchangeable__desc">account type: {{ userData.accountType }}</div>
+            </div>
+            <div class="avatar-container">
+                <p>{{ userData.avatar }}</p>
+            </div>
+
+            <div style="clear: both;"></div>
+
+        </div>
+
+    </div>
 
 </div>

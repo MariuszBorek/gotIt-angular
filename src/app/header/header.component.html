@@ -1,10 +1,33 @@
 <header>
-    <p>Header</p>
-    <nav>
-        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Employees</a>
-        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/registration" class="nav-link">register</a>
-        <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
-        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/userprofile" class="nav-link">My Profile</a>
-        <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a>
-    </nav>
+
+    <div id="nav-conteiner">
+
+        <div id="logo">
+            <button class="home-button" routerLink="/home"><span>got</span><span id="logo-blue-part">it</span></button>
+        </div>
+        <nav>
+            <div id="everone">
+                <div class="nav-button">
+                    <button class="nav-button__regist" *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/registration">register</button>
+                </div>
+                <div class="nav-button">
+                    <button class="nav-button__login" *ngIf="!authenticationService.isUserLoggedIn()" routerLink="/login">login</button >
+            </div>
+          </div>
+
+            <div id="loggedin-only">
+              <div class="nav-button">
+                <button class="nav-button__profile" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/userprofile">my account</button >
+              </div>
+              <div class="nav-button">
+                <button class="nav-button__a" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout">logout</button >
+              </div>
+          </div>
+
+        </nav>
+
+        <div style="clear: both;"></div>
+
+  </div>
+
 </header>

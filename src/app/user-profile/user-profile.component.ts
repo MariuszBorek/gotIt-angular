@@ -18,7 +18,13 @@ export class UserProfileComponent implements OnInit {
     .subscribe(userData => this.userData = userData)
   }
 
+  updateUserData() {
+    console.log('your data was updated');
+  }
+
   ngOnInit(): void {
+    this.getData();
+
   }
 
 }

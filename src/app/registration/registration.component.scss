@@ -1,0 +1,40 @@
+#container {
+    width: 970px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+}
+
+input {
+    display: flex;
+    width: 250px;
+    height: 45px;
+    outline: none;
+    border: 1px solid darkgray;
+    margin-bottom: 10px;
+    border-radius: 4px 4px 4px 4px;
+    padding-left: 10px;
+}
+
+.create-buttom {
+    background-color: #0471e3;
+    cursor: pointer;
+    width: 264px;
+    height: 45px;
+    color: white;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.create-buttom:hover {
+    background-color: #1582f4;
+}
+
+#login-inputs {
+    background-color: white;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}

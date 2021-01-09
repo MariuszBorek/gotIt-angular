@@ -1,0 +1,118 @@
+header {
+    margin-left: auto;
+    margin-right: auto;
+    height: 75px;
+    background-color: white;
+    border-bottom: 1px solid #dddddd;
+    margin-bottom: 15px;
+}
+
+#nav-conteiner {
+    width: 970px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav-button {
+    display: flex;
+    float: left;
+    outline: none;
+    margin: 13px;
+    &__a {
+        border: 0px;
+        font-size: 20px;
+        color: #767676;
+        margin-top: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+        background-color: white;
+        cursor: pointer;
+    }
+    &__profile {
+        border: 0px;
+        font-size: 20px;
+        color: #767676;
+        margin-top: 10px;
+        margin-right: 15px;
+        background-color: white;
+        cursor: pointer;
+    }
+    &__regist {
+        border: 0px;
+        font-size: 20px;
+        color: #767676;
+        margin-top: 10px;
+        margin-left: 657px;
+        margin-right: 15px;
+        background-color: white;
+        cursor: pointer;
+    }
+    &__login {
+        border: 0px;
+        font-size: 20px;
+        color: #767676;
+        margin-top: 10px;
+        margin-left: 15px;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+.nav-button__a:hover {
+    color: #ff5a00;
+}
+
+.nav-button__a:focus {
+    outline: none;
+}
+
+.nav-button__regist:hover {
+    color: #ff5a00;
+}
+
+.nav-button__regist:focus {
+    outline: none;
+}
+
+.nav-button__login:hover {
+    color: #ff5a00;
+}
+
+.nav-button__login:focus {
+    outline: none;
+}
+
+.nav-button__profile:hover {
+    color: #ff5a00;
+}
+
+.nav-button__profile:focus {
+    outline: none;
+}
+
+#logo {
+    display: flex;
+    float: left;
+    outline: none;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.home-button {
+    border: 0px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #ff5a00;
+    background-color: white;
+    cursor: pointer;
+}
+
+.home-button:focus {
+    outline: none;
+}
+
+#logo-blue-part {
+    color: #0471e3;
+}

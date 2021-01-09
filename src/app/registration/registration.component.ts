@@ -28,8 +28,9 @@ export class RegistrationComponent implements OnInit {
 
     this.registrationService.createUser(userDTO)
         .subscribe( data => {
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         });
+
   };
 
   ngOnInit(): void {

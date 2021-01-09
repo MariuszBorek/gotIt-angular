@@ -1,27 +1,13 @@
-<div>
-    <h2>registration</h2>
+<div id="container">
     <form>
-        <div>
-            <label for="email">Email:</label>
+
+        <div id="login-inputs">
             <input type="text" [(ngModel)]="email" placeholder="email" name="email" id="email">
-        </div>
-
-        <div>
-            <label for="password">Password:</label>
             <input type="text" [(ngModel)]="password" placeholder="password" name="password" id="password">
-        </div>
-
-        <div>
-            <label for="name">Name:</label>
             <input type="text" [(ngModel)]="name" placeholder="name" name="name" id="name">
-        </div>
-
-        <div>
-            <label for="surName">Surname:</label>
             <input type="text" [(ngModel)]="surname" placeholder="surname" name="surname" id="surname">
+            <button class="create-buttom" (click)="createUser()">create</button>
         </div>
-
-        <button (click)="createUser()">Create</button>
 
     </form>
 </div>

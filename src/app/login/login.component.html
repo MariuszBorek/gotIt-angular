@@ -1,7 +1,9 @@
-<p>login works!</p>
-<div>
-    <div>
-        User Name : <input type="text" name="username" [(ngModel)]="username"> Password : <input type="password" name="password" [(ngModel)]="password">
+<div id="container">
+
+    <div id="login-inputs">
+        <input type="text" placeholder="e-mail" name="username" [(ngModel)]="username">
+        <input type="password" placeholder="password" name="password" [(ngModel)]="password">
+        <button class="create-buttom" (click)=checkLogin()>log in</button>
     </div>
-    <button (click)=checkLogin()>Login</button>
+
 </div>
