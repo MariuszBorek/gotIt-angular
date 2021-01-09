@@ -4,18 +4,9 @@ export class User {
     public email: string,
     public password: string,
     public name: string,
-    public surName: string,
-    public avatar: string) {}
+    public surname: string,
+    public accountDescription: string,
+    public accountCreationDate: Date,
+    public avatar: string,
+    public accountType: string) {}
 }
-
-
-
-
-
-
-    // private String name;
-    // private String surName;
-    // private String accountDescription;
-    // private LocalDate accountCreationDate;
-    // private String avatar;
-    // private AccountType accountType;

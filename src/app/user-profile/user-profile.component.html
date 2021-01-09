@@ -1,1 +1,13 @@
 <p>user-profile works!</p>
+<div>
+    <button (click)="getData()">moje dane</button>
+
+    <div *ngIf="userData; then thenBlock else elseBlock"></div>
+
+    <ng-template #thenBlock>
+        <span>{{ userData.name }} / {{ userData.surname }} / {{ userData.email }} </span>
+    </ng-template>
+
+    <ng-template #elseBlock></ng-template>
+
+</div>
