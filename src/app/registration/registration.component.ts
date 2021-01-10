@@ -11,11 +11,16 @@ import { RegistrationService } from '../service/registration.service';
 })
 export class RegistrationComponent implements OnInit {
 
-    email: string;
-    password: string;
-    name: string;
-    surname: string;
-    avatar: string;
+  email: string;
+  password: string;
+  name: string;
+  surname: string;
+  street: string;
+  houseNumber: string;
+  postcode: string;
+  province: string;
+  city: string;
+  avatar: string;
 
   constructor(private registrationService: RegistrationService, private router: Router) { }
 
@@ -24,12 +29,17 @@ export class RegistrationComponent implements OnInit {
       this.password,
       this.name,
       this.surname,
+      this.street,
+      this.houseNumber,
+      this.postcode,
+      this.province,
+      this.city,
       this.avatar);
 
     this.registrationService.createUser(userDTO)
-        .subscribe( data => {
-          this.router.navigate(['home']);
-        });
+      .subscribe(data => {
+        this.router.navigate(['home']);
+      });
 
   };
 

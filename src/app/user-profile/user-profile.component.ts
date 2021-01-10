@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfileService } from '../service/user-profile.service';
-import { User } from '../interface/User';
+import { UserDTO } from '../interface/UserDTO';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,13 +9,13 @@ import { User } from '../interface/User';
 })
 export class UserProfileComponent implements OnInit {
 
-  userData: User;
+  userData: UserDTO;
 
   constructor(private userProfileService: UserProfileService) { }
 
   getData() {
     this.userProfileService.getUserData()
-    .subscribe(userData => this.userData = userData)
+    .subscribe(userData => this.userData = userData);
   }
 
   updateUserData() {

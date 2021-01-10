@@ -10,23 +10,33 @@
         <div class="data-container" *ngIf="userData;">
             <div class="profile-descript">profile</div>
 
+
+
             <div class="data-changeable">
                 <input type="text" placeholder="name" name="name" [(ngModel)]="userData.name">
                 <input type="text" placeholder="surname" name="surname" [(ngModel)]="userData.surname">
                 <input type="text" placeholder="email" name="email" [(ngModel)]="userData.email">
                 <input type="password" placeholder="password" name="password" [(ngModel)]="userData.password">
-                <button class="update-buttom" (click)="updateUserData()">update</button>
-
+                <input type="text" placeholder="street" name="street" [(ngModel)]="userData.street">
+                <input type="text" placeholder="houseNumber" name="houseNumber" [(ngModel)]="userData.houseNumber">
+                <input type="text" placeholder="postcode" name="postcode" [(ngModel)]="userData.postcode">
+                <input type="text" placeholder="province" name="province" [(ngModel)]="userData.province">
+                <input type="text" placeholder="city" name="city" [(ngModel)]="userData.city">
+                <button class="update-buttom" (click)="updateUserData()">save data</button>
             </div>
 
             <div class="data-unchangeable">
-                <div class="data-unchangeable__desc">account creation date: {{ userData.accountCreationDate }}</div>
-                <div class="data-unchangeable__desc">account description: {{ userData.accountDescription }}</div>
-                <div class="data-unchangeable__desc">account type: {{ userData.accountType }}</div>
+                <p>some info</p>
             </div>
             <div class="avatar-container">
-                <p>{{ userData.avatar }}</p>
+                <div>
+                    <p>{{ userData.avatar }}</p>
+                </div>
+                <div>
+                    <input type="file" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                </div>
             </div>
+
 
             <div style="clear: both;"></div>
 
