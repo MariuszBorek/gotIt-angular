@@ -10,6 +10,11 @@ export class HeaderComponent implements OnInit {
 
   constructor(public authenticationService: AuthenticationService) { }
 
+
+  findAuctions(auctionName: string) {
+    console.log(auctionName);
+  }
+
   ngOnInit(): void {
   }
 

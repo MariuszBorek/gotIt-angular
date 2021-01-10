@@ -5,6 +5,16 @@
         <div id="logo">
             <button class="home-button" routerLink="/home"><span>got</span><span id="logo-blue-part">it</span></button>
         </div>
+
+        <div class="find">
+            <div class="find__input">
+                <input class="find__input__field" type="text" placeholder="find by name" id="find-by-name" #findByName>
+            </div>
+            <div class="find__button">
+                <button class="find__button__find" (click)="findAuctions(findByName.value)">find</button>
+            </div>
+        </div>
+
         <nav>
             <div id="everone">
                 <div class="nav-button">

@@ -11,9 +11,3 @@ export class UserDTO {
     public city: string,
     public avatar: string) {}
 }
-
-
-
-
-
-

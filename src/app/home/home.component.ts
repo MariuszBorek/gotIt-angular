@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryDTO } from '../interface/CategoryDTO';
 import { AuthenticationService } from '../service/authentication.service';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +10,23 @@ import { AuthenticationService } from '../service/authentication.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authenticationService: AuthenticationService) { }
+  categories: CategoryDTO[];
+
+  constructor(private homeService: HomeService, public authenticationService: AuthenticationService) { }
+
+  getCategory() {
+    this.homeService.getCategories()
+    .subscribe(categories => {
+      this.categories = categories;
+      console.log(categories)});
+  }
+
+  choseCategory(category: CategoryDTO): void {
+    console.log(category.name)
+  }
 
   ngOnInit(): void {
+    this.getCategory();
   }
 
 }
