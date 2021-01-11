@@ -6,7 +6,7 @@
             <ul id="ul-category">
                 <li id="li-category" *ngFor="let category of categories">
                     <div class="single-cateegory">
-                        <button class="category-button" (click)="choseCategory(category)">{{ category.name }}</button>
+                        <button class="category-button" (click)="choseCategory(category);">{{ category.name }}</button>
                     </div>
                 </li>
             </ul>
@@ -21,11 +21,43 @@
 
     <div class="user-auctions" *ngIf="authenticationService.isUserLoggedIn();">
         <div class="user-auctions__block">
-            <p>lista ostatnio dodanych aukcji</p>
+            <ul class="ul-list">
+                <div class="list-title">Last added</div>
+                <li class="li-list" *ngFor="let auction of lastAddedAuctions">
+                    <div class="single-auction">
+                        <div class="auction-avatar">
+                            {{ auction.photo }}
+                        </div>
+                        <div class="auction-description">
+                            <button class="auction-button" (click)="goToAuction(auction);">{{ auction.description }}</button>
+                            <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: {{ auction.minPrice }} zł</div>
+                        </div>
+                        <div style="clear: both;"></div>
+
+                    </div>
+                </li>
+            </ul>
         </div>
 
         <div class="user-auctions__block">
-            <p>lista kończących sięaukcji aukcji</p>
+            <ul class="ul-list">
+                <div class="list-title">Ending auction</div>
+                <li class="li-list" *ngFor="let auction of endingAuctions">
+                    <div class="single-auction">
+                        <div class="auction-avatar">
+                            {{ auction.photo }}
+                        </div>
+                        <div class="auction-description">
+                            <button class="auction-button" (click)="goToAuction(auction);">{{ auction.description }}</button>
+                            <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: {{ auction.minPrice }} zł</div>
+                        </div>
+                        <div style="clear: both;"></div>
+
+                    </div>
+                </li>
+            </ul>
         </div>
 
         <div class="user-auctions__block">
@@ -37,7 +69,23 @@
         </div>
 
         <div class="user-auctions__block">
-            <p>własnie zakonczone</p>
+            <ul class="ul-list">
+                <div class="list-title">Just ended</div>
+                <li class="li-list" *ngFor="let auction of endedAuctions">
+                    <div class="single-auction">
+                        <div class="auction-avatar">
+                            {{ auction.photo }}
+                        </div>
+                        <div class="auction-description">
+                            <button class="auction-button" (click)="goToAuction(auction);">{{ auction.description }}</button>
+                            <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: {{ auction.minPrice }} zł&nbsp;&nbsp; <span class="finished">FINISHED</span></div>
+                        </div>
+                        <div style="clear: both;"></div>
+
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 

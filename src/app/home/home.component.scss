@@ -1,81 +1,152 @@
-#container {
-    width: 970px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 0px;
-}
-
-#categories {
-    background-color: white;
-    width: 300px;
-    float: left;
-}
-
-.user-auctions__block {
-    float: left;
-    margin-top: 15px;
-    min-height: 479px;
-    width: 970px;
-    background-color: white;
-    min-height: 200px;
-}
-
-.user-auctions__greeting {
-    background-color: white;
-    min-height: 568px;
-    float: left;
-    margin-left: 15px;
-    width: 655px;
-}
-
-#categories-block {
-    min-height: 20px;
-}
-
-.category-button {
-    display: flex;
-    outline: none;
-    border: 0px;
-    font-size: 18px;
-    color: #767676;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.category-button:hover {
-    color: #ff5a00;
-}
-
-.category-button:focus {
-    outline: none;
-}
-
-#greeting {
-    display: flex;
-    float: left;
-    outline: none;
-    margin: 13px;
-    width: fit-content;
-    font-size: 40px;
-    font-weight: bold;
-    color: #ff5a00;
-    margin-top: 200px;
-    margin-left: 250px;
-}
-
-#ul-category {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-left: 10px;
-}
-
-#li-category {
-    display: flex;
-    list-style-type: none;
-    padding: 0px;
-    margin-bottom: 5px;
-    border: none;
-}
+    #container {
+        width: 970px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0px;
+    }
+    
+    #categories {
+        background-color: white;
+        width: 300px;
+        float: left;
+    }
+    
+    .user-auctions__block {
+        float: left;
+        margin-top: 15px;
+        width: 970px;
+        background-color: white;
+        height: 600px;
+    }
+    
+    .user-auctions__greeting {
+        background-color: white;
+        min-height: 568px;
+        float: left;
+        margin-left: 15px;
+        width: 655px;
+    }
+    
+    #categories-block {
+        min-height: 20px;
+    }
+    
+    .category-button {
+        display: flex;
+        outline: none;
+        border: 0px;
+        font-size: 18px;
+        color: #767676;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        background-color: white;
+        cursor: pointer;
+    }
+    
+    .category-button:hover {
+        color: #ff5a00;
+    }
+    
+    .category-button:focus {
+        outline: none;
+    }
+    
+    #greeting {
+        display: flex;
+        float: left;
+        outline: none;
+        margin: 13px;
+        width: fit-content;
+        font-size: 40px;
+        font-weight: bold;
+        color: #ff5a00;
+        margin-top: 200px;
+        margin-left: 250px;
+    }
+    
+    #ul-category {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 10px;
+    }
+    
+    #li-category {
+        display: flex;
+        list-style-type: none;
+        padding: 0px;
+        margin-bottom: 5px;
+        border: none;
+    }
+    
+    .ul-list {
+        list-style-type: none;
+        padding: 0;
+        width: 840px;
+        margin-left: 60px;
+        font-size: 15px;
+    }
+    
+    .li-list {
+        display: flex;
+        list-style-type: none;
+        padding: 0px;
+        height: 100px;
+        border: 1px solid #dddddd;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .single-auction {}
+    
+    .list-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .auction-avatar {
+        float: left;
+        height: 80px;
+        width: 80px;
+        margin-top: 10px;
+        margin-left: 10px;
+        background-color: #d8d8d8;
+    }
+    
+    .auction-description {
+        margin-left: 10px;
+        float: left;
+    }
+    
+    .auction-button {
+        display: flex;
+        outline: none;
+        border: 0px;
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: -5px;
+        background-color: white;
+        cursor: pointer;
+    }
+    
+    .auction-button:hover {
+        color: #ff5a00;
+    }
+    
+    .auction-button:focus {
+        outline: none;
+    }
+    
+    .item-info {
+        color: #767676;
+    }
+    
+    b {
+        font-size: 25px;
+        color: black;
+    }
+    
+    .finished {
+        color: #ff0800;
+    }
