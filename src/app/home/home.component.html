@@ -6,7 +6,7 @@
             <ul id="ul-category">
                 <li id="li-category" *ngFor="let category of categories">
                     <div class="single-cateegory">
-                        <button class="category-button" (click)="choseCategory(category);">{{ category.name }}</button>
+                        <button class="category-button" (click)="goToCategory(category);">{{ category.name }}</button>
                     </div>
                 </li>
             </ul>

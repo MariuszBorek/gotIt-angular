@@ -16,4 +16,9 @@ export class AuctionService {
     return this.httpClient.get<AuctionDTO>(url);
   }
 
+  findCategoryProducts(categoryName: string): Observable<AuctionDTO[]> {
+    const url = `http://localhost:8080/auction/category/${categoryName}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
 }

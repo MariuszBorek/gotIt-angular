@@ -17,17 +17,23 @@ export class HomeComponent implements OnInit {
   lastAddedAuctions: AuctionDTO[];
   endingAuctions: AuctionDTO[];
   endedAuctions: AuctionDTO[];
+  choosenCategory: CategoryDTO;
+  ListOfProducts: AuctionDTO[];
 
   constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router) { }
 
-  getCategory() {
-    this.homeService.getCategories()
-    .subscribe(categories => this.categories = categories);
+  goToCategory(choosenCategory: CategoryDTO) {
+    this.router.navigate(['auction-list', choosenCategory.name])
   }
 
-  choseCategory(category: CategoryDTO): void {
-    console.log(category.name)
+  getCategory() {
+    this.homeService.getCategories()
+      .subscribe(categories => this.categories = categories);
   }
+
+  // choseCategory(category: CategoryDTO): void {
+  //   console.log(category.name)
+  // }
 
   goToAuction(auction: AuctionDTO) {
     this.auctionService.findAuction(auction.id).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
@@ -35,17 +41,17 @@ export class HomeComponent implements OnInit {
 
   getFiveLastAddedAuctions() {
     this.homeService.findFiveLastAddedAuctions()
-    .subscribe(lastAddedAuctions => this.lastAddedAuctions = lastAddedAuctions);
+      .subscribe(lastAddedAuctions => this.lastAddedAuctions = lastAddedAuctions);
   }
 
   getFiveEndingAuctions() {
     this.homeService.findFiveEndingAuctions()
-    .subscribe(endingAuctions => this.endingAuctions = endingAuctions);
+      .subscribe(endingAuctions => this.endingAuctions = endingAuctions);
   }
 
   getFiveEndedAuctions() {
     this.homeService.findFiveEndedAuctions()
-    .subscribe(endedAuctions => this.endedAuctions = endedAuctions);
+      .subscribe(endedAuctions => this.endedAuctions = endedAuctions);
   }
 
   ngOnInit(): void {
