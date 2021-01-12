@@ -1,9 +1,50 @@
 <div id="container">
-
     <div class="data-container">
-        <div class="photo">auction-card works! id = {{ auctionId }}</div>
+
+
+
+        <div class="photo">{{ auction.photo }}</div>
+
+        <div class="title">
+            <div class="text-tile">{{ auction.title }}</div>
+        </div>
+
+        <div class="price-buy-now">
+            <div class="text-buy-now">{{ auction.buyNowPrice }} zł</div>
+        </div>
+        <div class="price-auction">
+            <div class="text">Auction: {{ auction.minPrice }} zł</div>
+        </div>
+
+        <div class="localization">
+            <div class="text">Localization: {{ auction.localization }}</div>
+        </div>
+        <div class="end-date">
+            <div class="text">End date: {{ auction.endDate }}</div>
+        </div>
+        <div class="visits">
+            <div class="text">Visits: {{ auction.numberOfVisits }}</div>
+        </div>
+        <div class="button-cotatiner">
+            <div>
+                <button class="action-button" (click)="buyNow();">BUY NOW</button>
+            </div>
+            <div>
+                <button class="action-button" (click)="addToCart();">ADD TO CART</button>
+            </div>
+
+        </div>
+        <div style="clear: both;"></div>
+
     </div>
 
-    <div style="clear: both;"></div>
+    <div class="description-container">
+        <div class="description-title">Description</div>
+
+        <div class="description">{{ auction.description }}</div>
+
+        <div style="clear: both;"></div>
+    </div>
+
 
 </div>

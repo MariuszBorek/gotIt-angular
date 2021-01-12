@@ -17,17 +17,17 @@ export class HomeService {
   }
 
   findFiveLastAddedAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/home/last-added-auctions`;
+    const url = `http://localhost:8080/auction/last-added-auctions`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
   findFiveEndingAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/home/ending-auctions`;
+    const url = `http://localhost:8080/auction/ending-auctions`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
   findFiveEndedAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/home/ended-auctions`;
+    const url = `http://localhost:8080/auction/ended-auctions`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 

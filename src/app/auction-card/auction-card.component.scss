@@ -8,6 +8,115 @@
 .data-container {
     background-color: white;
     margin-top: 20px;
-    padding: 10px;
-    height: 510px;
+    padding: 20px;
+    min-height: 500px;
+}
+
+.photo {
+    background-color: #e6e6e6;
+    height: 500px;
+    width: 500px;
+    float: left;
+}
+
+.title {
+    border-top: 1px solid #dddddd;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 15px;
+    height: 70px;
+    width: 415px;
+    float: left;
+}
+
+.price-buy-now {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 15px;
+    height: 70px;
+    width: 207px;
+    float: left;
+}
+
+.price-auction {
+    height: 70px;
+    width: 208px;
+    float: left;
+}
+
+.localization {
+    margin-left: 15px;
+    height: 70px;
+    width: 415px;
+    float: left;
+}
+
+.end-date {
+    border-bottom: 1px solid #dddddd;
+    margin-left: 15px;
+    height: 50px;
+    width: 207px;
+    float: left;
+}
+
+.visits {
+    border-bottom: 1px solid #dddddd;
+    height: 50px;
+    width: 208px;
+    float: left;
+}
+
+.button-cotatiner {
+    margin-left: 15px;
+    height: 105px;
+    width: 415px;
+    margin-top: 65px;
+    float: left;
+}
+
+.action-button {
+    display: inline;
+    justify-content: flex-end;
+    background-color: #ff5a00;
+    cursor: pointer;
+    width: 415px;
+    height: 37px;
+    color: white;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+}
+
+.action-button:hover {
+    background-color: #ff6b11;
+}
+
+.text-tile {
+    margin-top: 10px;
+}
+
+.text {
+    margin-top: 25px;
+}
+
+.text-buy-now {
+    margin-top: 17px;
+}
+
+.space {
+    border-bottom: 1px solid #dddddd;
+    height: 20px;
+}
+
+.description-container {
+    background-color: white;
+    margin-top: 20px;
+    padding: 20px;
+    min-height: 500px;
+}
+
+.description-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
