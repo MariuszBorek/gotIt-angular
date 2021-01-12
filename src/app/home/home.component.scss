@@ -92,12 +92,9 @@
         list-style-type: none;
         padding: 0px;
         height: 100px;
-        border: 1px solid #dddddd;
-        border-left: none;
-        border-right: none;
+        border: none;
+        border-top: 1px solid #dddddd;
     }
-    
-    .single-auction {}
     
     .list-title {
         font-size: 20px;

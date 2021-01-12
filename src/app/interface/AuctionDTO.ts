@@ -1,5 +1,6 @@
 export class AuctionDTO {
   constructor(
+    public id: number,
     public description: string,
     public photo: string,
     public category: string,

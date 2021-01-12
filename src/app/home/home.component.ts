@@ -3,6 +3,8 @@ import { CategoryDTO } from '../interface/CategoryDTO';
 import { AuthenticationService } from '../service/authentication.service';
 import { HomeService } from '../service/home.service';
 import { AuctionDTO } from '../interface/AuctionDTO';
+import { AuctionService } from '../service/auction.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,7 @@ export class HomeComponent implements OnInit {
   endingAuctions: AuctionDTO[];
   endedAuctions: AuctionDTO[];
 
-  constructor(private homeService: HomeService, public authenticationService: AuthenticationService) { }
+  constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router) { }
 
   getCategory() {
     this.homeService.getCategories()
@@ -28,7 +30,7 @@ export class HomeComponent implements OnInit {
   }
 
   goToAuction(auction: AuctionDTO) {
-    console.log(auction);
+    this.auctionService.findAuction(auction.id).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
   }
 
   getFiveLastAddedAuctions() {

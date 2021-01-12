@@ -12,6 +12,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-interceptor.service';
 import { HomeComponent } from './home/home.component';
+import { AuctionCardComponent } from './auction-card/auction-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     LogoutComponent,
     RegistrationComponent,
     UserProfileComponent,
-    HomeComponent
+    HomeComponent,
+    AuctionCardComponent
   ],
   imports: [
     BrowserModule,
