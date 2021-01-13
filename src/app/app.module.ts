@@ -14,6 +14,7 @@ import { BasicAuthHttpInterceptorService } from './service/basic-auth-http-inter
 import { HomeComponent } from './home/home.component';
 import { AuctionCardComponent } from './auction-card/auction-card.component';
 import { AuctionListComponent } from './auction-list/auction-list.component';
+import { AuctionFoundComponent } from './auction-found/auction-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AuctionListComponent } from './auction-list/auction-list.component';
     UserProfileComponent,
     HomeComponent,
     AuctionCardComponent,
-    AuctionListComponent
+    AuctionListComponent,
+    AuctionFoundComponent
   ],
   imports: [
     BrowserModule,

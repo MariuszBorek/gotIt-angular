@@ -21,4 +21,9 @@ export class AuctionService {
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
+  findActionsMatchingThePhrase(phrase: string): Observable<AuctionDTO[]> {
+    const url = `http://localhost:8080/auction/phrase/${phrase}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
 }

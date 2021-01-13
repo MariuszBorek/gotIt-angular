@@ -1,47 +1,108 @@
 <div id="container">
-
     <div id="login-inputs">
 
+
+
+
         <div class="nav-profile">
-            <button class="nav-profile__button" (click)="getData()">profile</button>
-            <button class="nav-profile__button" (click)="getData()">set an auction</button>
+            <button class="nav-profile__button" (click)="getProfilData()">profile</button>
+            <button class="nav-profile__button" (click)="setAuction()">set an auction</button>
+            <button class="nav-profile__button" (click)="getWatchedAuctions()">watched auctions</button>
+            <button class="nav-profile__button" (click)="getWonAuctions()">won auctions</button>
         </div>
 
-        <div class="data-container" *ngIf="userData;">
-            <div class="profile-descript">profile</div>
 
 
-
-            <div class="data-changeable">
-                <input type="text" placeholder="name" name="name" [(ngModel)]="userData.name">
-                <input type="text" placeholder="surname" name="surname" [(ngModel)]="userData.surname">
-                <input type="text" placeholder="email" name="email" [(ngModel)]="userData.email">
-                <input type="password" placeholder="password" name="password" [(ngModel)]="userData.password">
-                <input type="text" placeholder="street" name="street" [(ngModel)]="userData.street">
-                <input type="text" placeholder="houseNumber" name="houseNumber" [(ngModel)]="userData.houseNumber">
-                <input type="text" placeholder="postcode" name="postcode" [(ngModel)]="userData.postcode">
-                <input type="text" placeholder="province" name="province" [(ngModel)]="userData.province">
-                <input type="text" placeholder="city" name="city" [(ngModel)]="userData.city">
-                <button class="update-buttom" (click)="updateUserData()">save data</button>
-            </div>
-
-            <div class="data-unchangeable">
-                <p>some info</p>
-            </div>
-            <div class="avatar-container">
-                <div>
-                    <p>{{ userData.avatar }}</p>
+        <div [ngSwitch]="choosenSite">
+            <div *ngSwitchCase="0">
+                <div class="data-container" *ngIf="userData;">
+                    <div class="profile-descript">My data</div>
+                    <div class="data-changeable">
+                        <input type="text" placeholder="name" name="name" [(ngModel)]="userData.name">
+                        <input type="text" placeholder="surname" name="surname" [(ngModel)]="userData.surname">
+                        <input type="text" placeholder="email" name="email" [(ngModel)]="userData.email">
+                        <input type="password" placeholder="password" name="password" [(ngModel)]="userData.password">
+                        <input type="text" placeholder="street" name="street" [(ngModel)]="userData.street">
+                        <input type="text" placeholder="houseNumber" name="houseNumber" [(ngModel)]="userData.houseNumber">
+                        <input type="text" placeholder="postcode" name="postcode" [(ngModel)]="userData.postcode">
+                        <input type="text" placeholder="province" name="province" [(ngModel)]="userData.province">
+                        <input type="text" placeholder="city" name="city" [(ngModel)]="userData.city">
+                        <button class="update-buttom" (click)="updateUserData()">save data</button>
+                    </div>
+                    <div class="data-unchangeable">
+                        <p>some info</p>
+                    </div>
+                    <div class="avatar-container">
+                        <div>
+                            <p>{{ userData.avatar }}</p>
+                        </div>
+                        <div>
+                            <input class="file-input" type="file" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
                 </div>
-                <div>
-                    <input class="file-input" type="file" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+            </div>
+
+
+
+            <div *ngSwitchCase="1">
+                <div class="data-container" *ngIf="userData;">
+                    <div class="profile-descript">Set auction</div>
+                    <div style="clear: both;"></div>
                 </div>
             </div>
 
 
-            <div style="clear: both;"></div>
+
+
+            <div *ngSwitchCase="2">
+                <div class="data-container" *ngIf="userData;">
+                    <div class="profile-descript">Watched auctions</div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+
+
+
+
+
+            <div *ngSwitchCase="3">
+                <div class="data-container" *ngIf="userData;">
+                    <div class="profile-descript">Won auctions</div>
+                    <div class="user-auctions__block">
+                        <ul class="ul-list">
+                            <li class="li-list" *ngFor="let auction of listOfPurchasedAuctions">
+                                <div class="single-auction">
+                                    <div class="auction-avatar">
+                                        {{ auction.photo }}
+                                    </div>
+                                    <div class="auction-description">
+                                        <button class="auction-button" (click)="goToAuction(auction.auctionId);">{{ auction.title }}</button>
+                                        <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+
+
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+
+
+
+
+
+
 
         </div>
+
 
     </div>
-
 </div>

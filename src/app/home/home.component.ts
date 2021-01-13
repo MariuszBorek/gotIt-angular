@@ -31,10 +31,6 @@ export class HomeComponent implements OnInit {
       .subscribe(categories => this.categories = categories);
   }
 
-  // choseCategory(category: CategoryDTO): void {
-  //   console.log(category.name)
-  // }
-
   goToAuction(auction: AuctionDTO) {
     this.auctionService.findAuction(auction.id).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
   }
