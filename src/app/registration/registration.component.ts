@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserDTO } from '../interface/UserDTO';
@@ -20,9 +21,19 @@ export class RegistrationComponent implements OnInit {
   postcode: string;
   province: string;
   city: string;
-  avatar: string;
+  avatar = 'sampleimg 3.jpg';
 
-  constructor(private registrationService: RegistrationService, private router: Router) { }
+
+
+  selectedFile: File;
+  imgURL: any;
+  retrievedImage: any;
+  base64Data: any;
+  retrieveResonse: any;
+  message: string;
+  imageName: any;
+
+  constructor(private registrationService: RegistrationService, private router: Router, private httpClient: HttpClient) { }
 
   createUser(): void {
     const userDTO = new UserDTO(this.email,
@@ -43,7 +54,64 @@ export class RegistrationComponent implements OnInit {
 
   };
 
+
+
+
+
+  // -------------------------
+
+  public onFileChanged(event) {
+    //Select File
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    console.log(this.selectedFile);
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+
+    this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.message = 'Image uploaded successfully';
+        } else {
+          this.message = 'Image not uploaded successfully';
+        }
+      }
+      );
+
+
+  }
+
+  getImage() {
+    this.registrationService.findImage(this.avatar)
+      .subscribe(
+        res => {
+          this.retrieveResonse = res;
+          this.base64Data = this.retrieveResonse.picByte;
+          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+        }
+      );
+
+    // this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
+    //   .subscribe(
+    //     res => {
+    //       this.retrieveResonse = res;
+    //       this.base64Data = this.retrieveResonse.picByte;
+    //       this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+    //     }
+    //   );
+  }
+
+  // -------------------------
+
   ngOnInit(): void {
   }
 
 }
+
+
+
+
+

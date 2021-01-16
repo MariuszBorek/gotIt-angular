@@ -1,6 +1,5 @@
 <div id="container">
     <form>
-
         <div id="login-inputs">
             <div>
                 Registration
@@ -16,6 +15,55 @@
             <input type="text" [(ngModel)]="city" placeholder="city" name="city" id="city">
             <button class="create-buttom" (click)="createUser()">create</button>
         </div>
-
     </form>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="upload-avatar">
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="file" (change)="onFileChanged($event)">
+
+                <!-- <img [src]="imgURL" height="100" *ngIf="imgURL"> -->
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="onUpload()" value="upload">
+            </div>
+        </div>
+        <hr />
+        <div class="container row">
+            <div class="col-md-12">
+                <div *ngIf=message>{{ message }}</div>
+            </div>
+        </div>
+
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" placeholder="image name" [(ngModel)]="imageName" name="name" />
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="getImage()" value="Get Image">
+
+            </div>
+        </div>
+
+        <div class="container row">
+            <div class="col-md-12">
+                <div>
+                    <img [src]="retrievedImage" height="100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 </div>

@@ -3,7 +3,9 @@
 
 
 
-        <div class="photo">{{ auction.photo }}</div>
+        <div class="photo">
+            <img [src]="retrievedImage">
+        </div>
 
         <div class="title">
             <div class="text-tile">{{ auction.title }}</div>

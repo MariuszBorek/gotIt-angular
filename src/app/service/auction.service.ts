@@ -36,4 +36,9 @@ export class AuctionService {
     return sessionStorage.getItem('username');
   }
 
+  findImage(imageName: string): Observable<any> {
+    const url = `http://localhost:8080/image/get/${imageName}`;
+    return this.httpClient.get<any>(url);
+  }
+
 }

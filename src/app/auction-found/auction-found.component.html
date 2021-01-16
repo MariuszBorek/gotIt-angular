@@ -7,7 +7,7 @@
                 <li class="li-list" *ngFor="let auction of ListOfProducts">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            {{ auction.photo }}
+                            <!-- <img [src]="photos.values" height="70px"> -->
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
