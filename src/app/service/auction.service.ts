@@ -26,4 +26,14 @@ export class AuctionService {
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
+  buyProduct(auctionId: number): Observable<AuctionDTO> {
+    const url = `http://localhost:8080/auction/buyNow/${auctionId}/${this.getUserEmail()}`;
+    console.log(url);
+    return this.httpClient.get<AuctionDTO>(url);
+  }
+
+  private getUserEmail(): string {
+    return sessionStorage.getItem('username');
+  }
+
 }

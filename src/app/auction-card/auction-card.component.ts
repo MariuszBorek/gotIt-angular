@@ -20,7 +20,7 @@ export class AuctionCardComponent implements OnInit {
   }
 
   buyNow() {
-    console.log('you both the product');
+    this.auctionService.buyProduct(this.auctionId).subscribe(auction => console.log(auction.title));
   }
 
   addToCart() {

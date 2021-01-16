@@ -11,5 +11,6 @@ export class AuctionDTO {
     public localization: string,
     public dateOfIssue: Date,
     public endDate: Date,
-    public numberOfVisits: number) {}
+    public numberOfVisits: number,
+    public finished: boolean) {}
 }

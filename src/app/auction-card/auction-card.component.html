@@ -26,8 +26,11 @@
             <div class="text">Visits: {{ auction.numberOfVisits }}</div>
         </div>
         <div class="button-cotatiner">
-            <div>
+            <div *ngIf="!auction.finished">
                 <button class="action-button" (click)="buyNow();">BUY NOW</button>
+            </div>
+            <div *ngIf="auction.finished">
+                <button class="action-button">FINISHED AUCTION</button>
             </div>
             <div>
                 <button class="action-button" (click)="addToCart();">ADD TO CART</button>
