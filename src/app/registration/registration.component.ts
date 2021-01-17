@@ -23,8 +23,6 @@ export class RegistrationComponent implements OnInit {
   city: string;
   avatar: string;
 
-
-
   selectedFile: File;
   imgURL: any;
   retrievedImage: any;
@@ -54,14 +52,7 @@ export class RegistrationComponent implements OnInit {
 
   };
 
-
-
-
-
-  // -------------------------
-
   public onFileChanged(event) {
-    //Select File
     this.selectedFile = event.target.files[0];
   }
 
@@ -80,8 +71,6 @@ export class RegistrationComponent implements OnInit {
         }
       }
       );
-
-
   }
 
   getImage() {
@@ -93,18 +82,7 @@ export class RegistrationComponent implements OnInit {
           this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
         }
       );
-
-    // this.httpClient.get('http://localhost:8080/image/get/' + this.imageName)
-    //   .subscribe(
-    //     res => {
-    //       this.retrieveResonse = res;
-    //       this.base64Data = this.retrieveResonse.picByte;
-    //       this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-    //     }
-    //   );
   }
-
-  // -------------------------
 
   ngOnInit(): void {
   }

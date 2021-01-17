@@ -5,6 +5,7 @@ import { HomeService } from '../service/home.service';
 import { AuctionDTO } from '../interface/AuctionDTO';
 import { AuctionService } from '../service/auction.service';
 import { Router } from '@angular/router';
+import { UserProfileService } from '../service/user-profile.service';
 
 @Component({
   selector: 'app-home',
@@ -19,14 +20,16 @@ export class HomeComponent implements OnInit {
   endedAuctions: AuctionDTO[];
   choosenCategory: CategoryDTO;
   ListOfProducts: AuctionDTO[];
+  watchedAuctions: AuctionDTO[];
 
   photoPath = '/assets/images/photos/';
 
-  constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router) { }
+  constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router, private userProfileService: UserProfileService) { }
 
   goToCategory(choosenCategory: CategoryDTO) {
     this.router.navigate(['auction-list', choosenCategory.name])
   }
+
 
   getCategory() {
     this.homeService.getCategories()
@@ -35,6 +38,10 @@ export class HomeComponent implements OnInit {
 
   goToAuction(auction: AuctionDTO) {
     this.auctionService.findAuction(auction.id).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
+  }
+
+  getWatchedAuctions() {
+    this.userProfileService.findWatchedAuctions().subscribe(watchedAuctions => this.watchedAuctions = watchedAuctions);
   }
 
   getFiveLastAddedAuctions() {
@@ -57,6 +64,7 @@ export class HomeComponent implements OnInit {
     this.getFiveLastAddedAuctions();
     this.getFiveEndingAuctions();
     this.getFiveEndedAuctions();
+    this.getWatchedAuctions();
   }
 
 }

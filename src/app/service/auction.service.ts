@@ -41,4 +41,9 @@ export class AuctionService {
     return this.httpClient.get<any>(url);
   }
 
+  watchProduct(auctionId: number): Observable<AuctionDTO> {
+    const url = `http://localhost:8080/auction/add-to-watched-auction/${auctionId}/${this.getUserEmail()}`;
+    return this.httpClient.get<AuctionDTO>(url);
+  }
+
 }

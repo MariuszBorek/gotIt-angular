@@ -4,6 +4,7 @@ import { UserDTO } from '../interface/UserDTO';
 import { PurchaseDTO } from '../interface/PurchaseDTO';
 import { AuctionService } from '../service/auction.service';
 import { Router } from '@angular/router';
+import { AuctionDTO } from '../interface/AuctionDTO';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class UserProfileComponent implements OnInit {
   choosenSite: number;
   userData: UserDTO;
   listOfPurchasedAuctions: PurchaseDTO[];
+  watchedAuctions: AuctionDTO[];
 
   photoPath = '/assets/images/avatar/';
   auctionPhotoPath = '/assets/images/photos/';
@@ -27,9 +29,13 @@ export class UserProfileComponent implements OnInit {
   }
 
   getProfilData() {
-    this.choosenSite = 0;
+
     this.userProfileService.getUserData()
-      .subscribe(userData => this.userData = userData);
+      .subscribe(userData => {
+        this.userData = userData;
+        this.choosenSite = 0;
+      });
+
   }
 
   setAuction() {
@@ -38,23 +44,38 @@ export class UserProfileComponent implements OnInit {
   }
 
   getWatchedAuctions() {
-    this.choosenSite = 2;
-    console.log('WatchedAuctions');
+    this.userProfileService.findWonAuctions()
+      .subscribe(listOfPurchasedAuctions => {
+        this.listOfPurchasedAuctions = listOfPurchasedAuctions;
+        this.choosenSite = 2;
+      });
+
   }
 
   getWonAuctions() {
-    this.choosenSite = 3;
-    this.userProfileService.findWonAuctions()
-      .subscribe(listOfPurchasedAuctions => this.listOfPurchasedAuctions = listOfPurchasedAuctions);
+    this.userProfileService.findWatchedAuctions()
+      .subscribe(watchedAuctions => {
+        this.watchedAuctions = watchedAuctions;
+        this.choosenSite = 3;
+      });
+
   }
 
 
   updateUserData() {
-    console.log('your data was updated');
+    this.userProfileService.updateData(this.userData)
+      .subscribe(userData => {
+        this.userData = userData;
+        this.refresh();});
   }
+
+  refresh(): void {
+    window.location.reload();
+}
 
   ngOnInit(): void {
     this.getProfilData();
+
   }
 
 }

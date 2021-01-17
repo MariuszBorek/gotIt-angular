@@ -27,10 +27,7 @@ export class AuctionCardComponent implements OnInit {
 
   buyNow() {
     if(sessionStorage.getItem('username') != null) {
-      this.auctionService.buyProduct(this.auctionId).subscribe(auction => {
-        console.log(auction.title);
-        this.router.navigate(['home']);
-      });
+      this.auctionService.buyProduct(this.auctionId).subscribe(auction => this.router.navigate(['home']));
 
     } else {
       alert('you have to be logged');
@@ -39,6 +36,14 @@ export class AuctionCardComponent implements OnInit {
 
   addToCart() {
     console.log('added to cart');
+  }
+
+  watchAuction() {
+    if(sessionStorage.getItem('username') != null) {
+      this.auctionService.watchProduct(this.auctionId).subscribe(auction => this.router.navigate(['home']));
+    } else {
+      alert('you have to be logged');
+    }
   }
 
   getImage(): void {

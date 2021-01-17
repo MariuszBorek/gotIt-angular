@@ -24,7 +24,23 @@
         </div>
 
         <div class="user-auctions__block">
-            <p>obserwowane aukcje</p>
+            <ul class="ul-list">
+                <div class="list-title">Watched auctions</div>
+                <li class="li-list" *ngFor="let auction of watchedAuctions">
+                    <div class="single-auction">
+                        <div class="auction-avatar">
+                            <img [src]="photoPath + auction.photo">
+                        </div>
+                        <div class="auction-description">
+                            <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
+                            <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: {{ auction.minPrice }} zł</div>
+                        </div>
+                        <div style="clear: both;"></div>
+
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 

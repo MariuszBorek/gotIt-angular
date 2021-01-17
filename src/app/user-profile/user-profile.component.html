@@ -20,13 +20,13 @@
                     <div class="data-changeable">
                         <input type="text" placeholder="name" name="name" [(ngModel)]="userData.name">
                         <input type="text" placeholder="surname" name="surname" [(ngModel)]="userData.surname">
-                        <input type="text" placeholder="email" name="email" [(ngModel)]="userData.email">
-                        <input type="password" placeholder="password" name="password" [(ngModel)]="userData.password">
                         <input type="text" placeholder="street" name="street" [(ngModel)]="userData.street">
                         <input type="text" placeholder="houseNumber" name="houseNumber" [(ngModel)]="userData.houseNumber">
                         <input type="text" placeholder="postcode" name="postcode" [(ngModel)]="userData.postcode">
                         <input type="text" placeholder="province" name="province" [(ngModel)]="userData.province">
                         <input type="text" placeholder="city" name="city" [(ngModel)]="userData.city">
+                        <input type="text" placeholder="email" name="email" [(ngModel)]="userData.email" disabled="disabled">
+                        <input type="password" placeholder="password" name="password" [(ngModel)]="userData.password" disabled="disabled">
                         <button class="update-buttom" (click)="updateUserData()">save data</button>
                     </div>
                     <div class="data-unchangeable">
@@ -53,7 +53,7 @@
 
 
             <div *ngSwitchCase="1">
-                <div class="data-container" *ngIf="userData;">
+                <div class="data-container" *ngIf="userData">
                     <div class="profile-descript">Set auction</div>
                     <div style="clear: both;"></div>
                 </div>
@@ -63,10 +63,34 @@
 
 
             <div *ngSwitchCase="2">
-                <div class="data-container" *ngIf="userData;">
+                <div class="data-container" *ngIf="userData">
                     <div class="profile-descript">Watched auctions</div>
+                    <div class="user-auctions__block">
+                        <ul class="ul-list">
+                            <li class="li-list" *ngFor="let auction of watchedAuctions">
+
+                                <div class="single-auction">
+                                    <div class="auction-avatar">
+                                        <img class="img-auction" [src]="auctionPhotoPath + auction.photo">
+                                    </div>
+                                    <div class="auction-description">
+                                        <button class="auction-button" (click)="goToAuction(auction.id);">{{ auction.title }}</button>
+                                        <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </div>
+
+
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+
                     <div style="clear: both;"></div>
                 </div>
+
             </div>
 
 
@@ -74,7 +98,7 @@
 
 
             <div *ngSwitchCase="3">
-                <div class="data-container" *ngIf="userData;">
+                <div class="data-container" *ngIf="userData">
                     <div class="profile-descript">Won auctions</div>
                     <div class="user-auctions__block">
                         <ul class="ul-list">
