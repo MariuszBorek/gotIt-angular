@@ -5,6 +5,7 @@ import { PurchaseDTO } from '../interface/PurchaseDTO';
 import { AuctionService } from '../service/auction.service';
 import { Router } from '@angular/router';
 import { AuctionDTO } from '../interface/AuctionDTO';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -18,11 +19,13 @@ export class UserProfileComponent implements OnInit {
   userData: UserDTO;
   listOfPurchasedAuctions: PurchaseDTO[];
   watchedAuctions: AuctionDTO[];
+  selectedFile: File;
+  message: string;
 
   photoPath = '/assets/images/avatar/';
   auctionPhotoPath = '/assets/images/photos/';
 
-  constructor(private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router) { }
+  constructor(private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router, private httpClient: HttpClient) { }
 
   goToAuction(auctionId: number) {
     this.auctionService.findAuction(auctionId).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
@@ -72,6 +75,37 @@ export class UserProfileComponent implements OnInit {
   refresh(): void {
     window.location.reload();
 }
+
+
+// ----------------------------------
+
+public onFileChanged(event) {
+  this.selectedFile = event.target.files[0];
+}
+
+onUpload() {
+  console.log(this.selectedFile);
+  const uploadImageData = new FormData();
+  uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+  const email = sessionStorage.getItem('username');
+
+
+  this.httpClient.post(`http://localhost:8080/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' })
+    .subscribe((response) => {
+      if (response.status === 200) {
+        this.message = 'Image uploaded successfully';
+      } else {
+        this.message = 'Image not uploaded successfully';
+      }
+      this.refresh();
+    }
+    );
+}
+
+
+
+
+
 
   ngOnInit(): void {
     this.getProfilData();

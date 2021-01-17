@@ -40,8 +40,36 @@
 
                         </div>
                         <div class="upload-btn-wrapper">
-                            <button class="btn">Upload a file</button>
-                            <input class="btn" type="file" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                            <button class="btn-choose" value="upload">choose a file</button>
+                            <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                            <button class="btn-upload" (click)="onUpload()" value="upload">Upload</button>
+
+
+
+
+
+
+
+
+                            <!-- <div class="container row">
+                              <div class="col-md-6">
+                                  <input type="file" (change)="onFileChanged($event)">
+
+                              </div>
+                              <div class="col-md-6">
+                                  <input type="button" (click)="onUpload()" value="upload">
+                              </div>
+                          </div> -->
+
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
 
@@ -79,8 +107,6 @@
                                     </div>
                                     <div style="clear: both;"></div>
                                 </div>
-
-
 
 
                             </li>
