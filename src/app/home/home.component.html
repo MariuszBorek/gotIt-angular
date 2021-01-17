@@ -15,7 +15,23 @@
     </div>
 
     <div class="user-auctions__greeting">
-        <div id="greeting">Hello!</div>
+
+        <div id="greeting">
+            Check it out!
+        </div>
+        <div id="photo-top">
+            <img class="photo-top-picture" [src]="photoPath + topAuction.photo">
+        </div>
+        <div id="title-top">
+            {{ topAuction.title }}
+        </div>
+        <div id="price-top">
+            Buy Now: {{ topAuction.buyNowPrice }} zł
+        </div>
+        <div id="price-auction-top">
+            Auction: {{ topAuction.minPrice }} zł
+        </div>
+        <div style="clear: both;"></div>
     </div>
 
     <div class="user-auctions" *ngIf="authenticationService.isUserLoggedIn();">
@@ -29,7 +45,7 @@
                 <li class="li-list" *ngFor="let auction of watchedAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            <img [src]="photoPath + auction.photo">
+                            <img class="img-avatar" [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
@@ -52,7 +68,7 @@
                 <li class="li-list" *ngFor="let auction of lastAddedAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            <img [src]="photoPath + auction.photo">
+                            <img class="img-avatar" [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
@@ -72,7 +88,7 @@
                 <li class="li-list" *ngFor="let auction of endingAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            <img [src]="photoPath + auction.photo">
+                            <img class="img-avatar" [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
@@ -92,7 +108,7 @@
                 <li class="li-list" *ngFor="let auction of endedAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            <img [src]="photoPath + auction.photo">
+                            <img class="img-avatar" [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>

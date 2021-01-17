@@ -60,29 +60,61 @@ export class RegistrationComponent implements OnInit {
     console.log(this.selectedFile);
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    const email = sessionStorage.getItem('username');
 
 
-    this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
+    this.httpClient.post(`http://localhost:8080/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this.message = 'Image uploaded successfully';
         } else {
           this.message = 'Image not uploaded successfully';
         }
+        // this.refresh();
       }
       );
   }
 
-  getImage() {
-    this.registrationService.findImage(this.avatar)
-      .subscribe(
-        res => {
-          this.retrieveResonse = res;
-          this.base64Data = this.retrieveResonse.picByte;
-          this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-        }
-      );
-  }
+
+
+
+
+
+
+
+
+
+  // public onFileChanged(event) {
+  //   this.selectedFile = event.target.files[0];
+  // }
+
+  // onUpload() {
+  //   console.log(this.selectedFile);
+  //   const uploadImageData = new FormData();
+  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+
+  //   this.httpClient.post('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
+  //     .subscribe((response) => {
+  //       if (response.status === 200) {
+  //         this.message = 'Image uploaded successfully';
+  //       } else {
+  //         this.message = 'Image not uploaded successfully';
+  //       }
+  //     }
+  //     );
+  // }
+
+  // getImage() {
+  //   this.registrationService.findImage(this.avatar)
+  //     .subscribe(
+  //       res => {
+  //         this.retrieveResonse = res;
+  //         this.base64Data = this.retrieveResonse.picByte;
+  //         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+  //       }
+  //     );
+  // }
 
   ngOnInit(): void {
   }

@@ -43,3 +43,42 @@ input {
 .upload-avatar {
     float: left;
 }
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn-choose {
+    border: none;
+    color: black;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+    width: 150px;
+    border: 1px solid gray;
+}
+
+.btn-upload {
+    border: none;
+    color: white;
+    background-color: #0471e3;
+    padding: 8px 20px;
+    border-radius: 4px;
+    width: 150px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.btn-upload:hover {
+    background-color: #1582f4;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

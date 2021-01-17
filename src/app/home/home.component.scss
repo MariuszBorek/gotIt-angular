@@ -60,8 +60,33 @@
         font-size: 40px;
         font-weight: bold;
         color: #ff5a00;
-        margin-top: 200px;
-        margin-left: 250px;
+    }
+    
+    #photo-top {
+        height: 350px;
+        width: 350px;
+        margin-left: 155px;
+        margin-top: 80px;
+        margin-bottom: 20px;
+    }
+    
+    #title-top {
+        height: 50px;
+        width: 630px;
+        margin-left: 13px;
+    }
+    
+    #price-top {
+        height: 50px;
+        width: 315px;
+        margin-left: 13px;
+        float: left;
+    }
+    
+    #price-auction-top {
+        height: 50px;
+        width: 315px;
+        float: left;
     }
     
     #ul-category {
@@ -149,7 +174,12 @@
         color: #ff0800;
     }
     
-    img {
+    .img-avatar {
         max-height: 80px;
         max-width: 80px;
+    }
+    
+    .photo-top-picture {
+        max-height: 350px;
+        max-width: 350px;
     }

@@ -31,6 +31,16 @@ export class HomeService {
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
+  findRandomPremiumAuction(): Observable<AuctionDTO> {
+    const url = `http://localhost:8080/auction/random-premium-auction`;
+    return this.httpClient.get<AuctionDTO>(url);
+  }
+
+  markFinishedAuctions(): Observable<boolean>  {
+    const url = `http://localhost:8080/home/check-finished-auctions`;
+    return this.httpClient.get<boolean>(url);
+  }
+
 
 
 

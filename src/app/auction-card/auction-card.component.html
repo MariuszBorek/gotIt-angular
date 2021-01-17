@@ -34,10 +34,10 @@
             <div *ngIf="auction.finished">
                 <button class="action-button__finished">FINISHED AUCTION</button>
             </div>
-            <div>
-                <button class="action-button" (click)="addToCart();">ADD TO CART</button>
+            <div *ngIf="!auction.finished">
+                <button class="action-button" (click)="addToCart();6">ADD TO CART</button>
             </div>
-            <div>
+            <div *ngIf="!auction.finished">
                 <button class="action-button" (click)="watchAuction();">WATCH</button>
             </div>
 

@@ -20,21 +20,19 @@
 
 
 
-
-
-
-
-
-
-
     <div class="upload-avatar">
 
+        <div class="upload-btn-wrapper">
+            <button class="btn-choose" value="upload">choose a file</button>
+            <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+            <button class="btn-upload" (click)="onUpload()" value="upload">Upload</button>
+        </div>
 
-        <div class="container row">
+
+        <!-- <div class="container row">
             <div class="col-md-6">
                 <input type="file" (change)="onFileChanged($event)">
-
-                <!-- <img [src]="imgURL" height="100" *ngIf="imgURL"> -->
+                <img [src]="imgURL" height="100" *ngIf="imgURL">
             </div>
             <div class="col-md-6">
                 <input type="button" (click)="onUpload()" value="upload">
@@ -46,7 +44,6 @@
                 <div *ngIf=message>{{ message }}</div>
             </div>
         </div>
-
         <div class="container row">
             <div class="col-md-6">
                 <input type="text" class="form-control" placeholder="image name" [(ngModel)]="imageName" name="name" />
@@ -56,14 +53,13 @@
 
             </div>
         </div>
-
         <div class="container row">
             <div class="col-md-12">
                 <div>
                     <img [src]="retrievedImage" height="100">
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
     </div>

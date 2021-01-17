@@ -40,9 +40,14 @@
 
                         </div>
                         <div class="upload-btn-wrapper">
-                            <button class="btn-choose" value="upload">choose a file</button>
-                            <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
-                            <button class="btn-upload" (click)="onUpload()" value="upload">Upload</button>
+                            <div>
+                                <button class="btn-choose" value="upload">choose a file</button>
+                                <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                            </div>
+                            <div>
+                                <button class="btn-upload" (click)="onUpload()" value="upload">Upload</button>
+                            </div>
+
 
 
 

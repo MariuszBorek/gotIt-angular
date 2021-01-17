@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   choosenCategory: CategoryDTO;
   ListOfProducts: AuctionDTO[];
   watchedAuctions: AuctionDTO[];
+  topAuction: AuctionDTO;
 
   photoPath = '/assets/images/photos/';
 
@@ -58,12 +59,22 @@ export class HomeComponent implements OnInit {
     this.homeService.findFiveEndedAuctions()
       .subscribe(endedAuctions => this.endedAuctions = endedAuctions);
   }
+  getRandomPremiumAuction() {
+    this.homeService.findRandomPremiumAuction()
+      .subscribe(topAuction => this.topAuction = topAuction);
+  }
+
+  checkFinishedAuctions(): void {
+    this.homeService.markFinishedAuctions().subscribe(e => console.log(e));
+  }
 
   ngOnInit(): void {
+    this.checkFinishedAuctions();
     this.getCategory();
     this.getFiveLastAddedAuctions();
     this.getFiveEndingAuctions();
     this.getFiveEndedAuctions();
+    this.getRandomPremiumAuction();
     this.getWatchedAuctions();
   }
 
