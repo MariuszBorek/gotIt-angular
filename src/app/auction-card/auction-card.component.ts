@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuctionDTO } from '../interface/AuctionDTO';
 import { AuctionService } from '../service/auction.service';
 
@@ -17,14 +17,24 @@ export class AuctionCardComponent implements OnInit {
   base64Data: any;
   retrieveResonse: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService) { }
+  constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router) { }
 
   getAuctionDetails() {
-    this.auctionService.findAuction(this.auctionId).subscribe(auction => {this.auction = auction; this.getImage();});
+    this.auctionService.findAuction(this.auctionId).subscribe(auction => {
+      this.auction = auction;
+      this.getImage();});
   }
 
   buyNow() {
-    this.auctionService.buyProduct(this.auctionId).subscribe(auction => console.log(auction.title));
+    if(sessionStorage.getItem('username') != null) {
+      this.auctionService.buyProduct(this.auctionId).subscribe(auction => {
+        console.log(auction.title);
+        this.router.navigate(['home']);
+      });
+
+    } else {
+      alert('you have to be logged');
+    }
   }
 
   addToCart() {

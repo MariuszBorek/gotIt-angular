@@ -32,14 +32,20 @@
                     <div class="data-unchangeable">
                         <p>some info</p>
                     </div>
+
+
                     <div class="avatar-container">
-                        <div>
-                            <p>{{ userData.avatar }}</p>
+                        <div class="img-avatar-photo">
+                            <img class="img-avatar" [src]="photoPath + userData.avatar">
+
                         </div>
-                        <div>
-                            <input class="file-input" type="file" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                        <div class="upload-btn-wrapper">
+                            <button class="btn">Upload a file</button>
+                            <input class="btn" type="file" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
                         </div>
                     </div>
+
+
                     <div style="clear: both;"></div>
                 </div>
             </div>
@@ -73,9 +79,10 @@
                     <div class="user-auctions__block">
                         <ul class="ul-list">
                             <li class="li-list" *ngFor="let auction of listOfPurchasedAuctions">
+
                                 <div class="single-auction">
                                     <div class="auction-avatar">
-                                        {{ auction.photo }}
+                                        <img class="img-auction" [src]="auctionPhotoPath + auction.photo">
                                     </div>
                                     <div class="auction-description">
                                         <button class="auction-button" (click)="goToAuction(auction.auctionId);">{{ auction.title }}</button>
@@ -83,6 +90,10 @@
                                     </div>
                                     <div style="clear: both;"></div>
                                 </div>
+
+
+
+
                             </li>
                         </ul>
                     </div>

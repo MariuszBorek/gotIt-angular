@@ -17,6 +17,9 @@ export class UserProfileComponent implements OnInit {
   userData: UserDTO;
   listOfPurchasedAuctions: PurchaseDTO[];
 
+  photoPath = '/assets/images/avatar/';
+  auctionPhotoPath = '/assets/images/photos/';
+
   constructor(private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router) { }
 
   goToAuction(auctionId: number) {

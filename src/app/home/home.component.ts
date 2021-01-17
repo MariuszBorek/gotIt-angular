@@ -20,6 +20,8 @@ export class HomeComponent implements OnInit {
   choosenCategory: CategoryDTO;
   ListOfProducts: AuctionDTO[];
 
+  photoPath = '/assets/images/photos/';
+
   constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router) { }
 
   goToCategory(choosenCategory: CategoryDTO) {

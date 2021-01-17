@@ -36,7 +36,7 @@
                 <li class="li-list" *ngFor="let auction of lastAddedAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            {{ auction.photo }}
+                            <img [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
@@ -56,7 +56,7 @@
                 <li class="li-list" *ngFor="let auction of endingAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            {{ auction.photo }}
+                            <img [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
@@ -76,7 +76,7 @@
                 <li class="li-list" *ngFor="let auction of endedAuctions">
                     <div class="single-auction">
                         <div class="auction-avatar">
-                            {{ auction.photo }}
+                            <img [src]="photoPath + auction.photo">
                         </div>
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>

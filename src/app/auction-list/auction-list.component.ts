@@ -16,6 +16,8 @@ export class AuctionListComponent implements OnInit {
   categoryName: string;
   ListOfProducts: AuctionDTO[];
 
+  photoPath = '/assets/images/photos/';
+
   constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router) { }
 
 

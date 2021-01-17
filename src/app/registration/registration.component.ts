@@ -21,7 +21,7 @@ export class RegistrationComponent implements OnInit {
   postcode: string;
   province: string;
   city: string;
-  avatar = 'sampleimg 3.jpg';
+  avatar: string;
 
 
 

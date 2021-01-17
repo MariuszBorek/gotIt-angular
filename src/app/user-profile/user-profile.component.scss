@@ -91,7 +91,7 @@ input {
 .avatar-container {
     margin-left: 15px;
     margin-right: 15px;
-    background-color: rgb(231, 231, 231);
+    // background-color: rgb(231, 231, 231);
     width: 150px;
     height: 150px;
     float: left;
@@ -125,17 +125,12 @@ input {
     border-top: 1px solid #dddddd;
 }
 
-// .list-title {
-//     font-size: 20px;
-//     margin-bottom: 10px;
-// }
 .auction-avatar {
     float: left;
     height: 80px;
     width: 80px;
     margin-top: 10px;
     margin-left: 10px;
-    background-color: #d8d8d8;
 }
 
 .auction-description {
@@ -167,7 +162,39 @@ input {
     color: #767676;
 }
 
-// b {
-//     font-size: 25px;
-//     color: black;
-// }
+.img-avatar {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+.img-auction {
+    max-height: 80px;
+    max-width: 80px;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn {
+    border: none;
+    color: white;
+    background-color: #0471e3;
+    padding: 8px 20px;
+    border-radius: 4px;
+    width: 150px;
+}
+
+.btn:hover {
+    background-color: #1582f4;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

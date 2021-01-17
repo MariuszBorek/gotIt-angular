@@ -107,7 +107,8 @@
         width: 80px;
         margin-top: 10px;
         margin-left: 10px;
-        background-color: #d8d8d8;
+        display: flex;
+        align-items: center;
     }
     
     .auction-description {
@@ -146,4 +147,9 @@
     
     .finished {
         color: #ff0800;
+    }
+    
+    img {
+        max-height: 80px;
+        max-width: 80px;
     }

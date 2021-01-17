@@ -13,10 +13,7 @@ export class AuctionFoundComponent implements OnInit {
   phrase: string;
   ListOfProducts: AuctionDTO[];
 
-  // retrievedImage: any;
-  // base64Data: any;
-  // retrieveResonse: any;
-  // photos: any[];
+  photoPath = '/assets/images/photos/';
 
   constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router) { }
 
@@ -27,18 +24,6 @@ export class AuctionFoundComponent implements OnInit {
   getAuctionsMatchingThePhrase() {
     this.auctionService.findActionsMatchingThePhrase(this.phrase).subscribe(ListOfProducts => this.ListOfProducts = ListOfProducts);
   }
-
-  // getImage(photoName: string): any {
-  //   this.auctionService.findImage(photoName)
-  //     .subscribe(
-  //       res => {
-  //         this.retrieveResonse = res;
-  //         this.base64Data = this.retrieveResonse.picByte;
-  //         this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-  //         this.photos.push(this.retrievedImage);
-  //       }
-  //     );
-  // }
 
   ngOnInit(): void {
     this.phrase = this.activatedRoute.snapshot.paramMap.get('phrase');
