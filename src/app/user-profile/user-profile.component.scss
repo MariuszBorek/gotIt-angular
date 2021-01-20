@@ -210,3 +210,43 @@ input {
     top: 0;
     opacity: 0;
 }
+
+.select-tag {
+    display: flex;
+    width: 200px;
+    height: 35px;
+    outline: none;
+    border: 1px solid darkgray;
+    margin-bottom: 10px;
+    border-radius: 4px 4px 4px 4px;
+    padding-left: 10px;
+}
+
+.description-area {
+    float: left;
+    resize: none;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.textarea-tag {
+    border: 1px solid darkgray;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.choose-tag {
+    width: 20px;
+    height: 20px;
+}
+
+.radio-tag-div {
+    float: left;
+    margin-right: 50px;
+}
+
+.btn-container {
+    margin-top: 35px;
+    font-size: 14px;
+}

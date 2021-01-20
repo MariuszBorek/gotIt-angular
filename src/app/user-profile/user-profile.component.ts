@@ -27,7 +27,7 @@ export class UserProfileComponent implements OnInit {
   message: string;
   newAuction: NewAuctionDTO;
 
-  newCreatedAuction = new NewAuctionDTO('category', 'title', 'description', 'minPrice', 'buyNowPrice', false, 0);
+  newCreatedAuction = new NewAuctionDTO('', '', '', '', '', false, 0);
 
   categories: CategoryDTO[];
 

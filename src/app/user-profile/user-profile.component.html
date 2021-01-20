@@ -1,9 +1,6 @@
 <div id="container">
     <div id="login-inputs">
 
-
-
-
         <div class="nav-profile">
             <button class="nav-profile__button" (click)="getProfilData()">profile</button>
             <button class="nav-profile__button" (click)="setAuction()">set an auction</button>
@@ -11,8 +8,6 @@
             <button class="nav-profile__button" (click)="getWonAuctions()">won auctions</button>
             <button class="nav-profile__button" (click)="getUserPostedAuctions()">posted auctions</button>
         </div>
-
-
 
         <div [ngSwitch]="choosenSite">
             <div *ngSwitchCase="0">
@@ -34,15 +29,13 @@
                         <p>some info</p>
                     </div>
 
-
                     <div class="avatar-container">
                         <div class="img-avatar-photo">
                             <img class="img-avatar" [src]="photoPath + userData.avatar">
-
                         </div>
                         <div class="upload-btn-wrapper">
                             <div>
-                                <button class="btn-choose" value="upload">choose a file</button>
+                                <button class="btn-choose" value="upload">add avatar</button>
                                 <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
                             </div>
                             <div>
@@ -50,11 +43,12 @@
                             </div>
                         </div>
                     </div>
-
-
                     <div style="clear: both;"></div>
                 </div>
             </div>
+
+
+
 
 
 
@@ -64,8 +58,8 @@
 
                     <div class="data-changeable">
 
-                        <div>
-                            <select name="category" [(ngModel)]="newCreatedAuction.category">
+                        <div class="select-div">
+                            <select class="select-tag" name="category" [(ngModel)]="newCreatedAuction.category">
                           <option selected>Choose category</option>
                           <option *ngFor="let category of categories">{{ category.name }}</option>
                         </select>
@@ -73,43 +67,55 @@
 
                         <input type="text" placeholder="title" name="title" [(ngModel)]="newCreatedAuction.title">
 
-                        <textarea type="text" placeholder="description" name="description" [(ngModel)]="newCreatedAuction.description"></textarea>
 
                         <input type="text" placeholder="minPrice" name="minPrice" [(ngModel)]="newCreatedAuction.minPrice">
                         <input type="text" placeholder="buyNowPrice" name="buyNowPrice" [(ngModel)]="newCreatedAuction.buyNowPrice">
 
-                        <div>
-                            <label>premium auction</label>
-                            <input type="checkbox" placeholder="promotedAuction" name="promotedAuction" [(ngModel)]="newCreatedAuction.promotedAuction">
+
+                        <div class="btn-container">
+                            <div>duration:</div>
+                            <div class="radio-tag-div">
+                                <label>7 days</label>
+                                <input class="choose-tag" type="radio" name="endDate" value="7" [(ngModel)]="newCreatedAuction.endDate">
+                            </div>
+                            <div class="radio-tag-div">
+                                <label>14 days</label>
+                                <input class="choose-tag" type="radio" name="endDate" value="14" [(ngModel)]="newCreatedAuction.endDate">
+
+                            </div>
+                            <div style="clear: both;"></div>
                         </div>
 
+                        <div class="btn-container">
+                            <div>premium:</div>
+                            <input class="choose-tag" type="checkbox" placeholder="promotedAuction" name="promotedAuction" [(ngModel)]="newCreatedAuction.promotedAuction">
+                        </div>
 
-                        <label>the duration of the auction</label>
-                        <div>
-                            <label>7 days</label>
-                            <input type="radio" name="endDate" value="7" [(ngModel)]="newCreatedAuction.endDate">
-                        </div>
-                        <div>
-                            <label>14 days</label>
-                            <input type="radio" name="endDate" value="14" [(ngModel)]="newCreatedAuction.endDate">
-                        </div>
 
                     </div>
+
+
+
+                    <div class="description-area">
+                        <textarea class="textarea-tag" rows="40" cols="65" type="text" placeholder="description" name="description" [(ngModel)]="newCreatedAuction.description"></textarea>
+                    </div>
+
+
+
+
                     <div class="upload-btn-wrapper">
                         <div>
-                            <button class="btn-choose" value="upload">choose a file</button>
+                            <button class="btn-choose" value="upload">add photo</button>
                             <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
                         </div>
                         <div>
                             <button class="btn-upload" (click)="onUploadAuction();">set up auction</button>
-
                         </div>
                     </div>
-
-
                     <div style="clear: both;"></div>
                 </div>
             </div>
+
 
 
 
@@ -132,13 +138,9 @@
                                     </div>
                                     <div style="clear: both;"></div>
                                 </div>
-
-
                             </li>
                         </ul>
                     </div>
-
-
                     <div style="clear: both;"></div>
                 </div>
 
@@ -165,18 +167,9 @@
                                     </div>
                                     <div style="clear: both;"></div>
                                 </div>
-
-
-
-
                             </li>
                         </ul>
                     </div>
-
-
-
-
-
                     <div style="clear: both;"></div>
                 </div>
             </div>
@@ -200,22 +193,13 @@
                                     </div>
                                     <div class="auction-description">
                                         <button class="auction-button" (click)="goToAuction(auction.id);">{{ auction.title }}</button>
-                                        <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                                        <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;auction: {{ auction.minPrice }}&nbsp;&nbsp;Buy now: {{ auction.buyNowPrice }}&nbsp;&nbsp;Visits: {{ auction.numberOfVisits }}</div>
                                     </div>
                                     <div style="clear: both;"></div>
                                 </div>
-
-
-
-
                             </li>
                         </ul>
                     </div>
-
-
-
-
-
                     <div style="clear: both;"></div>
                 </div>
             </div>
