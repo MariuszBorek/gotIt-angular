@@ -22,6 +22,7 @@ export class UserProfileComponent implements OnInit {
   userData: UserDTO;
   listOfPurchasedAuctions: PurchaseDTO[];
   watchedAuctions: AuctionDTO[];
+  userPostedAuctions: AuctionDTO[];
   selectedFile: File;
   message: string;
   newAuction: NewAuctionDTO;
@@ -63,8 +64,6 @@ export class UserProfileComponent implements OnInit {
     console.log('test');
   }
 
-
-
   getWatchedAuctions() {
     this.userProfileService.findWonAuctions()
       .subscribe(listOfPurchasedAuctions => {
@@ -79,6 +78,15 @@ export class UserProfileComponent implements OnInit {
       .subscribe(watchedAuctions => {
         this.watchedAuctions = watchedAuctions;
         this.choosenSite = 3;
+      });
+
+  }
+
+  getUserPostedAuctions() {
+    this.userProfileService.findUserPostedAuctions()
+      .subscribe(userPostedAuctions => {
+        this.userPostedAuctions = userPostedAuctions;
+        this.choosenSite = 4;
       });
 
   }

@@ -34,6 +34,11 @@ export class UserProfileService {
     return this.httpClient.post<UserDTO>(url, userDTO);
   }
 
+  findUserPostedAuctions(): Observable<AuctionDTO[]> {
+    const url = `http://localhost:8080/api/posted-auctions/${this.email}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
 
 
 }
