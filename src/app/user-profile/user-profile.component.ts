@@ -6,6 +6,9 @@ import { AuctionService } from '../service/auction.service';
 import { Router } from '@angular/router';
 import { AuctionDTO } from '../interface/AuctionDTO';
 import { HttpClient } from '@angular/common/http';
+import { NewAuctionDTO } from '../interface/NewAuctionDTO';
+import { CategoryDTO } from '../interface/CategoryDTO';
+import { HomeService } from '../service/home.service';
 
 
 @Component({
@@ -21,18 +24,29 @@ export class UserProfileComponent implements OnInit {
   watchedAuctions: AuctionDTO[];
   selectedFile: File;
   message: string;
+  newAuction: NewAuctionDTO;
+
+  newCreatedAuction = new NewAuctionDTO('category', 'title', 'description', 'minPrice', 'buyNowPrice', false, 0);
+
+  categories: CategoryDTO[];
+
+
 
   photoPath = '/assets/images/avatar/';
   auctionPhotoPath = '/assets/images/photos/';
 
-  constructor(private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router, private httpClient: HttpClient) { }
+  constructor(private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router, private httpClient: HttpClient, private homeService: HomeService) { }
+
+  getCategory() {
+    this.homeService.getCategories()
+      .subscribe(categories => {this.categories = categories, console.log(categories); });
+  }
 
   goToAuction(auctionId: number) {
     this.auctionService.findAuction(auctionId).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
   }
 
   getProfilData() {
-
     this.userProfileService.getUserData()
       .subscribe(userData => {
         this.userData = userData;
@@ -43,8 +57,13 @@ export class UserProfileComponent implements OnInit {
 
   setAuction() {
     this.choosenSite = 1;
-    console.log('setAuction');
   }
+
+  onUploadAuctionPhoto() {
+    console.log('test');
+  }
+
+
 
   getWatchedAuctions() {
     this.userProfileService.findWonAuctions()
@@ -81,13 +100,14 @@ export class UserProfileComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  onUpload() {
+  onUploadAvatar() {
     console.log(this.selectedFile);
+
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+
     const email = sessionStorage.getItem('username');
-
-
     this.httpClient.post(`http://localhost:8080/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
@@ -99,7 +119,34 @@ export class UserProfileComponent implements OnInit {
       }
       );
   }
+
+  onUploadAuction() {
+    console.log(this.selectedFile);
+    console.log(this.newCreatedAuction);
+
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+
+
+    const email = sessionStorage.getItem('username');
+    const url = `http://localhost:8080/api/set-up-auction/${email}?category=${this.newCreatedAuction.category}&title=${this.newCreatedAuction.title}&description=${this.newCreatedAuction.description}&minPrice=${this.newCreatedAuction.minPrice}&buyNowPrice=${this.newCreatedAuction.buyNowPrice}&promotedAuction=${this.newCreatedAuction.promotedAuction}&endDate=${this.newCreatedAuction.endDate}`;
+    console.log(url);
+    this.httpClient.post(url, uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.message = 'Image uploaded successfully';
+        } else {
+          this.message = 'Image not uploaded successfully';
+        }
+        this.refresh();
+      }
+      );
+  }
+
+
+
   ngOnInit(): void {
+    this.getCategory();
     this.getProfilData();
 
   }

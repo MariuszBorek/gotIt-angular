@@ -21,12 +21,16 @@
         <div class="localization">
             <div class="text">Localization: {{ auction.localization }}</div>
         </div>
+        <div class="seller">
+            <div class="text">Seller: {{ auction.owner }}</div>
+        </div>
         <div class="end-date">
             <div class="text">End date: {{ auction.endDate }}</div>
         </div>
         <div class="visits">
             <div class="text">Visits: {{ auction.numberOfVisits }}</div>
         </div>
+
         <div class="button-cotatiner">
             <div *ngIf="!auction.finished">
                 <button class="action-button" (click)="buyNow();">BUY NOW</button>
@@ -35,11 +39,12 @@
                 <button class="action-button__finished">FINISHED AUCTION</button>
             </div>
             <div *ngIf="!auction.finished">
-                <button class="action-button" (click)="addToCart();6">ADD TO CART</button>
+                <button class="action-button" (click)="addToCart();">ADD TO CART</button>
             </div>
             <div *ngIf="!auction.finished">
                 <button class="action-button" (click)="watchAuction();">WATCH</button>
             </div>
+
 
         </div>
         <div style="clear: both;"></div>
