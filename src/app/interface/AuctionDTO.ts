@@ -5,7 +5,6 @@ export class AuctionDTO {
     public description: string,
     public photo: string,
     public category: string,
-    public minPrice: string,
     public buyNowPrice: string,
     public promotedAuction: boolean,
     public localization: string,
