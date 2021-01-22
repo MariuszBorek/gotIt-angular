@@ -9,7 +9,7 @@
     background-color: white;
     margin-top: 20px;
     padding: 20px;
-    min-height: 500px;
+    min-height: 535px;
 }
 
 .photo {
@@ -34,13 +34,13 @@
     font-size: 25px;
     font-weight: bold;
     margin-left: 15px;
-    height: 70px;
+    height: 50px;
     width: 207px;
     float: left;
 }
 
 .price-auction {
-    height: 70px;
+    height: 50px;
     width: 208px;
     float: left;
 }
@@ -78,7 +78,7 @@
     margin-left: 15px;
     height: 105px;
     width: 415px;
-    margin-top: 35px;
+    margin-top: 15px;
     float: left;
 }
 
@@ -105,6 +105,18 @@
         border: none;
         margin-top: 10px;
         background-color: #dddddd;
+    }
+    &__bid {
+        display: inline;
+        justify-content: flex-end;
+        background-color: #3a4e58;
+        cursor: pointer;
+        width: 415px;
+        height: 37px;
+        color: white;
+        outline: none;
+        border: none;
+        // margin-top: 5px;
     }
 }
 
@@ -145,4 +157,16 @@
 img {
     max-width: 500px;
     min-height: auto;
+}
+
+.offer__input__field {
+    display: flex;
+    margin-top: 25px;
+    width: 110px;
+    height: 35px;
+    outline: none;
+    border: 1px solid darkgray;
+    margin-bottom: 5px;
+    border-radius: 4px 4px 4px 4px;
+    padding-left: 10px;
 }

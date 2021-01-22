@@ -16,6 +16,8 @@ export class AuctionCardComponent implements OnInit {
   retrievedImage: any;
   base64Data: any;
   retrieveResonse: any;
+  actualPrice: string;
+
 
   constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router) { }
 
@@ -33,6 +35,16 @@ export class AuctionCardComponent implements OnInit {
       alert('you have to be logged');
     }
   }
+
+  bidAuction(offeredPrice: string) {
+    if(sessionStorage.getItem('username') != null) {
+      this.auctionService.makeAnOffer(this.auctionId, offeredPrice).subscribe(auction => this.auction = auction);
+
+    } else {
+      alert('you have to be logged');
+    }
+  }
+
 
   addToCart() {
     console.log('added to cart');

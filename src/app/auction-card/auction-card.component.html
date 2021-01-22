@@ -36,13 +36,28 @@
                 <button class="action-button" (click)="buyNow();">BUY NOW</button>
             </div>
             <div *ngIf="auction.finished">
-                <button class="action-button__finished">FINISHED AUCTION</button>
+                <button class="action-button__finished">BUY NOW</button>
             </div>
             <div *ngIf="!auction.finished">
                 <button class="action-button" (click)="addToCart();">ADD TO CART</button>
             </div>
+            <div *ngIf="auction.finished">
+                <button class="action-button__finished">ADD TO CART</button>
+            </div>
             <div *ngIf="!auction.finished">
                 <button class="action-button" (click)="watchAuction();">WATCH</button>
+            </div>
+            <div *ngIf="auction.finished">
+                <button class="action-button__finished">WATCH</button>
+            </div>
+            <div>
+                <input class="offer__input__field" type="text" placeholder="Your offer" #offeredPrice>
+            </div>
+            <div *ngIf="!auction.finished">
+                <button class="action-button__bid" (click)="bidAuction(offeredPrice.value);">BID ON</button>
+            </div>
+            <div *ngIf="auction.finished">
+                <button class="action-button__finished">BID ON</button>
             </div>
 
 

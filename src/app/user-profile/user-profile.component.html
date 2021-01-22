@@ -7,6 +7,7 @@
             <button class="nav-profile__button" (click)="getWatchedAuctions()">watched auctions</button>
             <button class="nav-profile__button" (click)="getWonAuctions()">won auctions</button>
             <button class="nav-profile__button" (click)="getUserPostedAuctions()">posted auctions</button>
+            <button class="nav-profile__button" (click)="getUserOffers()">auctions bid</button>
         </div>
 
         <div [ngSwitch]="choosenSite">
@@ -186,6 +187,30 @@
                     <div class="user-auctions__block">
                         <ul class="ul-list">
                             <li class="li-list" *ngFor="let auction of userPostedAuctions">
+
+                                <div class="single-auction">
+                                    <div class="auction-avatar">
+                                        <img class="img-auction" [src]="auctionPhotoPath + auction.photo">
+                                    </div>
+                                    <div class="auction-description">
+                                        <button class="auction-button" (click)="goToAuction(auction.id);">{{ auction.title }}</button>
+                                        <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;auction: {{ auction.minPrice }}&nbsp;&nbsp;Buy now: {{ auction.buyNowPrice }}&nbsp;&nbsp;Visits: {{ auction.numberOfVisits }}</div>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+
+            <div *ngSwitchCase="5">
+                <div class="data-container" *ngIf="userData">
+                    <div class="profile-descript">Auctions bid</div>
+                    <div class="user-auctions__block">
+                        <ul class="ul-list">
+                            <li class="li-list" *ngFor="let auction of userOffers">
 
                                 <div class="single-auction">
                                     <div class="auction-avatar">

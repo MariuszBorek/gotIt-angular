@@ -11,6 +11,10 @@ export class AuctionService {
 
   constructor(private httpClient: HttpClient) { }
 
+  private getUserEmail(): string {
+    return sessionStorage.getItem('username');
+  }
+
   findAuction(auctionId: number): Observable<AuctionDTO> {
     const url = `http://localhost:8080/auction/${auctionId}`;
     return this.httpClient.get<AuctionDTO>(url);
@@ -28,12 +32,7 @@ export class AuctionService {
 
   buyProduct(auctionId: number): Observable<AuctionDTO> {
     const url = `http://localhost:8080/auction/buyNow/${auctionId}/${this.getUserEmail()}`;
-    console.log(url);
     return this.httpClient.get<AuctionDTO>(url);
-  }
-
-  private getUserEmail(): string {
-    return sessionStorage.getItem('username');
   }
 
   findImage(imageName: string): Observable<any> {
@@ -44,6 +43,16 @@ export class AuctionService {
   watchProduct(auctionId: number): Observable<AuctionDTO> {
     const url = `http://localhost:8080/auction/add-to-watched-auction/${auctionId}/${this.getUserEmail()}`;
     return this.httpClient.get<AuctionDTO>(url);
+  }
+
+  makeAnOffer(auctionId: number, offeredPrice: string): Observable<AuctionDTO> {
+    const url = `http://localhost:8080/auction/make-offer/${offeredPrice}/${auctionId}/${this.getUserEmail()}`;
+    return this.httpClient.get<AuctionDTO>(url);
+  }
+
+  findUserOffers(): Observable<AuctionDTO[]> {
+    const url = `http://localhost:8080/auction/bidding/${this.getUserEmail()}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
   }
 
 }

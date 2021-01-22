@@ -26,6 +26,7 @@ export class UserProfileComponent implements OnInit {
   selectedFile: File;
   message: string;
   newAuction: NewAuctionDTO;
+  userOffers: AuctionDTO[];
 
   newCreatedAuction = new NewAuctionDTO('', '', '', '', '', false, 0);
 
@@ -149,6 +150,18 @@ export class UserProfileComponent implements OnInit {
         this.refresh();
       }
       );
+  }
+
+  getUserOffers() {
+    if(sessionStorage.getItem('username') != null) {
+      this.auctionService.findUserOffers().subscribe(userOffers => {
+        this.userOffers = userOffers;
+          this.choosenSite = 5;
+        });
+
+    } else {
+      alert('you have to be logged');
+    }
   }
 
 
