@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuctionDTO } from '../interface/AuctionDTO';
 import { AuctionService } from '../service/auction.service';
+import { OfferDTO } from '../interface/OfferDTO';
 
 @Component({
   selector: 'app-auction-card',
@@ -17,14 +18,21 @@ export class AuctionCardComponent implements OnInit {
   base64Data: any;
   retrieveResonse: any;
   actualPrice: string;
+  highestOffer: OfferDTO;
 
 
   constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router) { }
 
   getAuctionDetails() {
     this.auctionService.findAuction(this.auctionId).subscribe(auction => {
+      this.getHighestBid();
       this.auction = auction;
       this.getImage();});
+  }
+
+  getHighestBid() {
+    this.auctionService.findHighestOffer(this.auctionId)
+    .subscribe(highestOffer => this.highestOffer = highestOffer);
   }
 
   buyNow() {
@@ -43,6 +51,8 @@ export class AuctionCardComponent implements OnInit {
     } else {
       alert('you have to be logged');
     }
+    location.reload();
+
   }
 
 

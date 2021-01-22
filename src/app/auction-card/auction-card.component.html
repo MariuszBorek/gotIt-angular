@@ -15,7 +15,7 @@
             <div class="text-buy-now">{{ auction.buyNowPrice }} zł</div>
         </div>
         <div class="price-auction">
-            <div class="text">Auction: {{ auction.minPrice }} zł</div>
+            <div *ngIf="highestOffer" class="text">Auction: {{ highestOffer.price }} zł</div>
         </div>
 
         <div class="localization">
@@ -55,6 +55,7 @@
             </div>
             <div *ngIf="!auction.finished">
                 <button class="action-button__bid" (click)="bidAuction(offeredPrice.value);">BID ON</button>
+                <div *ngIf="highestOffer" class="text-offer">Highest offer: {{ highestOffer.userEmail }}</div>
             </div>
             <div *ngIf="auction.finished">
                 <button class="action-button__finished">BID ON</button>

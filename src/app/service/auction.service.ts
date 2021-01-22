@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuctionDTO } from '../interface/AuctionDTO';
+import { OfferDTO } from '../interface/OfferDTO';
 
 
 @Injectable({
@@ -13,6 +14,11 @@ export class AuctionService {
 
   private getUserEmail(): string {
     return sessionStorage.getItem('username');
+  }
+
+  findHighestOffer(auctionId: number): Observable<OfferDTO>  {
+    const url = `http://localhost:8080/auction/highest-bid/${auctionId}`
+    return this.httpClient.get<OfferDTO>(url);
   }
 
   findAuction(auctionId: number): Observable<AuctionDTO> {
