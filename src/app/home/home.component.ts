@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router, private userProfileService: UserProfileService) { }
 
   goToCategory(choosenCategory: CategoryDTO) {
-    this.router.navigate(['auction-list', choosenCategory.name]);
+    this.router.navigate(['auction-list', choosenCategory.name])
   }
 
 
