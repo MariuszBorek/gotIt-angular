@@ -11,11 +11,11 @@ export class RegistrationService {
   constructor(private httpClient: HttpClient) { }
 
   public createUser(userDTO) {
-    return this.httpClient.post<UserDTO>("http://localhost:8080/api/create", userDTO);
+    return this.httpClient.post<UserDTO>("https://gotit-backend.herokuapp.com/api/create", userDTO);
   }
 
   findImage(imageName: string): Observable<any> {
-    return this.httpClient.get<any>(`http://localhost:8080/image/get/${imageName}`);
+    return this.httpClient.get<any>(`https://gotit-backend.herokuapp.com/image/get/${imageName}`);
   }
 
 }

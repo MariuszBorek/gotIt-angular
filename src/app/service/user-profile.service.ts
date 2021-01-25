@@ -15,27 +15,27 @@ export class UserProfileService {
   constructor(private httpClient: HttpClient) { }
 
   getUserData(): Observable<UserDTO> {
-    const url = `http://localhost:8080/api/profile/${this.email}`;
+    const url = `https://gotit-backend.herokuapp.com/api/profile/${this.email}`;
     return this.httpClient.get<UserDTO>(url);
   }
 
   findWonAuctions(): Observable<PurchaseDTO[]> {
-    const url = `http://localhost:8080/api/purchased/${this.email}`;
+    const url = `https://gotit-backend.herokuapp.com/api/purchased/${this.email}`;
     return this.httpClient.get<PurchaseDTO[]>(url);
   }
 
   findWatchedAuctions(): Observable<AuctionDTO[]>  {
-    const url = `http://localhost:8080/api/watched-auctions/${this.email}`;
+    const url = `https://gotit-backend.herokuapp.com/api/watched-auctions/${this.email}`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
   updateData(userDTO: UserDTO): Observable<UserDTO> {
-    const url = `http://localhost:8080/api/update-user-data/${this.email}`;
+    const url = `https://gotit-backend.herokuapp.com/api/update-user-data/${this.email}`;
     return this.httpClient.post<UserDTO>(url, userDTO);
   }
 
   findUserPostedAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/api/posted-auctions/${this.email}`;
+    const url = `https://gotit-backend.herokuapp.com/api/posted-auctions/${this.email}`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 

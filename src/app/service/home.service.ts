@@ -12,32 +12,32 @@ export class HomeService {
   constructor(private httpClient: HttpClient) { }
 
   getCategories(): Observable<CategoryDTO[]> {
-    const url = `http://localhost:8080/home/categories`;
+    const url = `https://gotit-backend.herokuapp.com/home/categories`;
     return this.httpClient.get<CategoryDTO[]>(url);
   }
 
   findFiveLastAddedAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/auction/last-added-auctions`;
+    const url = `https://gotit-backend.herokuapp.com/auction/last-added-auctions`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
   findFiveEndingAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/auction/ending-auctions`;
+    const url = `https://gotit-backend.herokuapp.com/auction/ending-auctions`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
   findFiveEndedAuctions(): Observable<AuctionDTO[]> {
-    const url = `http://localhost:8080/auction/ended-auctions`;
+    const url = `https://gotit-backend.herokuapp.com/auction/ended-auctions`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
   findRandomPremiumAuction(): Observable<AuctionDTO> {
-    const url = `http://localhost:8080/auction/random-premium-auction`;
+    const url = `https://gotit-backend.herokuapp.com/auction/random-premium-auction`;
     return this.httpClient.get<AuctionDTO>(url);
   }
 
   markFinishedAuctions(): Observable<boolean>  {
-    const url = `http://localhost:8080/home/check-finished-auctions`;
+    const url = `https://gotit-backend.herokuapp.com/home/check-finished-auctions`;
     return this.httpClient.get<boolean>(url);
   }
 

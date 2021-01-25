@@ -25,14 +25,15 @@ export class AuctionCardComponent implements OnInit {
 
   getAuctionDetails() {
     this.auctionService.findAuction(this.auctionId).subscribe(auction => {
-      this.getHighestBid();
       this.auction = auction;
-      this.getImage();});
+      this.getImage();
+      this.getHighestBid();
+    });
   }
 
   getHighestBid() {
-    this.auctionService.findHighestOffer(this.auctionId)
-    .subscribe(highestOffer => this.highestOffer = highestOffer);
+      this.auctionService.findHighestOffer(this.auctionId)
+      .subscribe(highestOffer => this.highestOffer = highestOffer);
   }
 
   buyNow() {
@@ -52,9 +53,7 @@ export class AuctionCardComponent implements OnInit {
       alert('you have to be logged');
     }
     location.reload();
-
   }
-
 
   addToCart() {
     console.log('added to cart');
