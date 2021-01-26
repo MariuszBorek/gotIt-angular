@@ -9,6 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { AuctionCardComponent } from './auction-card/auction-card.component';
 import { AuctionListComponent } from './auction-list/auction-list.component';
 import { AuctionFoundComponent } from './auction-found/auction-found.component';
+import { UserCreateAuctionComponent } from './user-create-auction/user-create-auction.component';
+import { UserAuctionsObservedComponent } from './user-auctions-observed/user-auctions-observed.component';
+import { UserAuctionsWonComponent } from './user-auctions-won/user-auctions-won.component';
+import { UserAuctionsComponent } from './user-auctions/user-auctions.component';
+import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-products.component';
 
 
 const routes: Routes = [
@@ -20,7 +25,12 @@ const routes: Routes = [
   { path: 'auction-found/:phrase', component: AuctionFoundComponent },
   { path: 'logout', component: LogoutComponent, canActivate:[AuthGuardService] },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'userprofile', component: UserProfileComponent, canActivate:[AuthGuardService] },
+  { path: 'user-profile', component: UserProfileComponent, canActivate:[AuthGuardService] },
+  { path: 'user-create-auction', component: UserCreateAuctionComponent, canActivate:[AuthGuardService] },
+  { path: 'user-auctions-observed', component: UserAuctionsObservedComponent, canActivate:[AuthGuardService] },
+  { path: 'user-auctions-won', component: UserAuctionsWonComponent, canActivate:[AuthGuardService] },
+  { path: 'user-auctions', component: UserAuctionsComponent, canActivate:[AuthGuardService] },
+  { path: 'user-bidden-products', component: UserBiddenProductsComponent, canActivate:[AuthGuardService] }
 ];
 
 @NgModule({

@@ -68,14 +68,22 @@ export class HomeComponent implements OnInit {
     this.homeService.markFinishedAuctions().subscribe(e => console.log(e));
   }
 
+  getHomeAuctions(): void {
+    const email = sessionStorage.getItem('username');
+    if (!email) {
+      this.getFiveLastAddedAuctions();
+      this.getFiveEndingAuctions();
+      this.getFiveEndedAuctions();
+    } else {
+      this.getWatchedAuctions();
+    }
+  }
+
   ngOnInit(): void {
+    this.getHomeAuctions();
+    this.getRandomPremiumAuction();
     this.checkFinishedAuctions();
     this.getCategory();
-    this.getFiveLastAddedAuctions();
-    this.getFiveEndingAuctions();
-    this.getFiveEndedAuctions();
-    this.getRandomPremiumAuction();
-    this.getWatchedAuctions();
   }
 
 }

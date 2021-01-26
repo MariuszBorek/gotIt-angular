@@ -1,0 +1,37 @@
+<div id="container">
+    <div id="login-inputs">
+
+        <div class="nav-profile">
+            <button class="nav-profile__button" routerLink="/user-profile">profile</button>
+            <button class="nav-profile__button" routerLink="/user-create-auction">create auction</button>
+            <button class="nav-profile__button" routerLink="/user-auctions-observed">auctions observed</button>
+            <button class="nav-profile__button" routerLink="/user-auctions-won">auctions won</button>
+            <button class="nav-profile__button" routerLink="/user-auctions">my auctions</button>
+            <button class="nav-profile__button" routerLink="/user-bidden-products">bidden auctions</button>
+        </div>
+
+        <div class="data-container" *ngIf="userData">
+            <div class="profile-descript">Won auctions</div>
+            <div class="user-auctions__block">
+                <ul class="ul-list">
+                    <li class="li-list" *ngFor="let auction of listOfPurchasedAuctions">
+
+                        <div class="single-auction">
+                            <div class="auction-avatar">
+                                <img class="img-auction" [src]="auctionPhotoPath + auction.photo">
+                            </div>
+                            <div class="auction-description">
+                                <button class="auction-button" (click)="goToAuction(auction.auctionId);">{{ auction.title }}</button>
+                                <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+
+    </div>
+</div>

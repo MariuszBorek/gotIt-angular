@@ -38,10 +38,18 @@ export class UserProfileService {
     return this.httpClient.post<UserDTO>(url, userDTO);
   }
 
+  updateAvatar(uploadImageData: FormData): any {
+    const email = sessionStorage.getItem('username');
+    return this.httpClient.post(`${this.baseUrl}/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' });
+  }
+
   findUserPostedAuctions(): Observable<AuctionDTO[]> {
     const url = `${this.baseUrl}/api/posted-auctions/${this.email}`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
+
+
+
 
 
 

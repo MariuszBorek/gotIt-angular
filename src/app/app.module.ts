@@ -15,6 +15,12 @@ import { HomeComponent } from './home/home.component';
 import { AuctionCardComponent } from './auction-card/auction-card.component';
 import { AuctionListComponent } from './auction-list/auction-list.component';
 import { AuctionFoundComponent } from './auction-found/auction-found.component';
+import { UserCreateAuctionComponent } from './user-create-auction/user-create-auction.component';
+import { UserAuctionsObservedComponent } from './user-auctions-observed/user-auctions-observed.component';
+
+import { UserAuctionsWonComponent } from './user-auctions-won/user-auctions-won.component';
+import { UserAuctionsComponent } from './user-auctions/user-auctions.component';
+import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-products.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +33,12 @@ import { AuctionFoundComponent } from './auction-found/auction-found.component';
     HomeComponent,
     AuctionCardComponent,
     AuctionListComponent,
-    AuctionFoundComponent
+    AuctionFoundComponent,
+    UserCreateAuctionComponent,
+    UserAuctionsObservedComponent,
+    UserAuctionsWonComponent,
+    UserAuctionsComponent,
+    UserBiddenProductsComponent
   ],
   imports: [
     BrowserModule,
