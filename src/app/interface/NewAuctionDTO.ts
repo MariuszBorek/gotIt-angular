@@ -6,5 +6,6 @@ export class NewAuctionDTO {
     public minPrice: string,
     public buyNowPrice: string,
     public promotedAuction: boolean,
-    public endDate) { }
+    public endDate: number,
+    public isAuction: boolean) { }
 }

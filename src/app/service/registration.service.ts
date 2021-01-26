@@ -8,14 +8,16 @@ import { UserDTO } from '../interface/UserDTO';
 })
 export class RegistrationService {
 
+  baseUrl = 'http://localhost:8080';
+
   constructor(private httpClient: HttpClient) { }
 
   public createUser(userDTO) {
-    return this.httpClient.post<UserDTO>("https://gotit-backend.herokuapp.com/api/create", userDTO);
+    return this.httpClient.post<UserDTO>(`${this.baseUrl}/api/create`, userDTO);
   }
 
   findImage(imageName: string): Observable<any> {
-    return this.httpClient.get<any>(`https://gotit-backend.herokuapp.com/image/get/${imageName}`);
+    return this.httpClient.get<any>(`${this.baseUrl}/image/get/${imageName}`);
   }
 
 }

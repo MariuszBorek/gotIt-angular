@@ -18,6 +18,8 @@ import { HomeService } from '../service/home.service';
 })
 export class UserProfileComponent implements OnInit {
 
+  baseUrl = 'http://localhost:8080';
+
   choosenSite: number;
   userData: UserDTO;
   listOfPurchasedAuctions: PurchaseDTO[];
@@ -28,7 +30,7 @@ export class UserProfileComponent implements OnInit {
   newAuction: NewAuctionDTO;
   userOffers: AuctionDTO[];
 
-  newCreatedAuction = new NewAuctionDTO('', '', '', '', '', false, 0);
+  newCreatedAuction = new NewAuctionDTO('', '', '', '', '', false, 0, false);
 
   categories: CategoryDTO[];
 
@@ -117,7 +119,7 @@ export class UserProfileComponent implements OnInit {
 
 
     const email = sessionStorage.getItem('username');
-    this.httpClient.post(`http://localhost:8080/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' })
+    this.httpClient.post(`${this.baseUrl}/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           this.message = 'Image uploaded successfully';
@@ -138,7 +140,7 @@ export class UserProfileComponent implements OnInit {
 
 
     const email = sessionStorage.getItem('username');
-    const url = `http://localhost:8080/api/set-up-auction/${email}?category=${this.newCreatedAuction.category}&title=${this.newCreatedAuction.title}&description=${this.newCreatedAuction.description}&minPrice=${this.newCreatedAuction.minPrice}&buyNowPrice=${this.newCreatedAuction.buyNowPrice}&promotedAuction=${this.newCreatedAuction.promotedAuction}&endDate=${this.newCreatedAuction.endDate}`;
+    const url = `${this.baseUrl}/api/set-up-auction/${email}?category=${this.newCreatedAuction.category}&title=${this.newCreatedAuction.title}&description=${this.newCreatedAuction.description}&minPrice=${this.newCreatedAuction.minPrice}&buyNowPrice=${this.newCreatedAuction.buyNowPrice}&promotedAuction=${this.newCreatedAuction.promotedAuction}&endDate=${this.newCreatedAuction.endDate}&isAuction=${this.newCreatedAuction.isAuction}`;
     console.log(url);
     this.httpClient.post(url, uploadImageData, { observe: 'response' })
       .subscribe((response) => {

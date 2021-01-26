@@ -11,11 +11,14 @@ export class User {
 })
 export class AuthenticationService {
 
+  baseUrl = 'http://localhost:8080';
+
+
   constructor(private httpClient: HttpClient) { }
 
   authenticate(username, password) {
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.httpClient.get<User>('https://gotit-backend.herokuapp.com/api/validateLogin', { headers }).pipe(
+    return this.httpClient.get<User>(`${this.baseUrl}/api/validateLogin`, { headers }).pipe(
       map(
         userData => {
           sessionStorage.setItem('username', username);

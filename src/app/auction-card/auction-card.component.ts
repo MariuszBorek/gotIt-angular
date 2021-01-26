@@ -11,6 +11,8 @@ import { OfferDTO } from '../interface/OfferDTO';
 })
 export class AuctionCardComponent implements OnInit {
 
+  photoPath = '/assets/images/photos/';
+
   auctionId: number;
   auction: AuctionDTO;
 

@@ -4,11 +4,13 @@
 
 
         <div class="photo">
-            <img [src]="retrievedImage">
+            <!-- <img [src]="retrievedImage"> -->
+            <img [src]="photoPath + auction.photo">
         </div>
 
         <div class="title">
             <div class="text-tile">{{ auction.title }}</div>
+
         </div>
 
         <div class="price-buy-now">
