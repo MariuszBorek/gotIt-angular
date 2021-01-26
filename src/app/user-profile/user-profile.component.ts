@@ -18,7 +18,6 @@ export class UserProfileComponent implements OnInit {
   message: string;
   newAuction: NewAuctionDTO;
 
-  baseUrl = 'http://localhost:8080';
   photoPath = '/assets/images/avatar/';
 
   constructor(private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router, private httpClient: HttpClient) { }
