@@ -12,7 +12,7 @@ import { HomeService } from '../service/home.service';
 })
 export class UserCreateAuctionComponent implements OnInit {
 
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://gotit-backend.herokuapp.com';
   newCreatedAuction = new NewAuctionDTO('', '', '', '', '', false, 0, false);
   categories: CategoryDTO[];
   selectedFile: File;

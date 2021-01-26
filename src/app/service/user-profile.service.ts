@@ -35,7 +35,7 @@ export class UserProfileService {
   }
 
   updateData(userDTO: UserDTO): Observable<UserDTO> {
-    const url = `${this.baseUrl}api/update-user-data/${this.email}`;
+    const url = `${this.baseUrl}/api/update-user-data/${this.email}`;
     return this.httpClient.post<UserDTO>(url, userDTO);
   }
 
