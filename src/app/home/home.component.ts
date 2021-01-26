@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   ListOfProducts: AuctionDTO[];
   watchedAuctions: AuctionDTO[];
   topAuction: AuctionDTO;
+  userOffers: AuctionDTO[];
 
   photoPath = '/assets/images/photos/';
 
@@ -43,6 +44,11 @@ export class HomeComponent implements OnInit {
 
   getWatchedAuctions() {
     this.userProfileService.findWatchedAuctions().subscribe(watchedAuctions => this.watchedAuctions = watchedAuctions);
+  }
+
+  getUserOffers() {
+      this.auctionService.findUserOffers().subscribe(userOffers =>
+        this.userOffers = userOffers);
   }
 
   getFiveLastAddedAuctions() {
@@ -76,6 +82,7 @@ export class HomeComponent implements OnInit {
       this.getFiveEndedAuctions();
     } else {
       this.getWatchedAuctions();
+      this.getUserOffers();
     }
   }
 

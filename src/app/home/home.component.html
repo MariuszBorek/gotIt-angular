@@ -36,7 +36,23 @@
 
     <div class="user-auctions" *ngIf="authenticationService.isUserLoggedIn();">
         <div class="user-auctions__block">
-            <p>lista aukcji któreliczytuje zalogowany uzytkownik</p>
+            <ul class="ul-list">
+                <div class="list-title">Auctions bid</div>
+                <li class="li-list" *ngFor="let auction of userOffers">
+                    <div class="single-auction">
+                        <div class="auction-avatar">
+                            <img class="img-avatar" [src]="photoPath + auction.photo">
+                        </div>
+                        <div class="auction-description">
+                            <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
+                            <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: !MINIMALNA CENA! zł</div>
+                        </div>
+                        <div style="clear: both;"></div>
+
+                    </div>
+                </li>
+            </ul>
         </div>
 
         <div class="user-auctions__block">
