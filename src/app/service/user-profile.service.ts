@@ -14,7 +14,7 @@ export class UserProfileService {
 
   email = sessionStorage.getItem('username');
 
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://gotit-backend.herokuapp.com';
   // herokuURL = 'https://gotit-backend.herokuapp.com';
   // localHostURL = 'http://localhost:8080';
 

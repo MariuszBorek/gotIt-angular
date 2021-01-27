@@ -1,0 +1,54 @@
+footer {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+#nav-conteiner {
+    width: 970px;
+    margin-top: 15px;
+    background-color: #3a4e58;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact {
+    padding: 15px;
+    margin-left: 48px;
+}
+
+#logo {
+    display: flex;
+    float: left;
+    outline: none;
+    margin-top: 15px;
+    margin-bottom: 13px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 85%;
+    margin-bottom: 30px;
+}
+
+.home-button {
+    border: 0px;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    background-color: #3a4e58;
+    cursor: pointer;
+}
+
+.home-button:focus {
+    outline: none;
+}
+
+.img-link {
+    float: left;
+    margin-right: 50px;
+    margin-top: 15px;
+}
+
+.contact-text {
+    margin-top: 15px;
+    float: left;
+}

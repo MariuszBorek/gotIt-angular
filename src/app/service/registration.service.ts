@@ -8,7 +8,7 @@ import { UserDTO } from '../interface/UserDTO';
 })
 export class RegistrationService {
 
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://gotit-backend.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 

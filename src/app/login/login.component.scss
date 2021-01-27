@@ -1,4 +1,6 @@
 #container {
+    // min-height: 100%;
+    // margin-bottom: -50px;
     width: 970px;
     margin-left: auto;
     margin-right: auto;
@@ -35,7 +37,7 @@ input {
 #login-inputs {
     background-color: white;
     width: fit-content;
-    height: fit-content;
+    // height: fit-content;
     padding: 50px;
     margin-top: 150px;
     margin-left: auto;

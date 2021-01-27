@@ -21,6 +21,7 @@ import { UserAuctionsObservedComponent } from './user-auctions-observed/user-auc
 import { UserAuctionsWonComponent } from './user-auctions-won/user-auctions-won.component';
 import { UserAuctionsComponent } from './user-auctions/user-auctions.component';
 import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-products.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-
     UserAuctionsObservedComponent,
     UserAuctionsWonComponent,
     UserAuctionsComponent,
-    UserBiddenProductsComponent
+    UserBiddenProductsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
