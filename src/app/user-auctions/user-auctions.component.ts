@@ -36,6 +36,10 @@ export class UserAuctionsComponent implements OnInit {
         this.userPostedAuctions = userPostedAuctions);
   }
 
+  checkIfMyAuctionsIsEmpty(): boolean {
+    return this.userPostedAuctions.length === 0;
+  }
+
   ngOnInit(): void {
     this.getProfilData();
   }

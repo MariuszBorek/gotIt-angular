@@ -50,6 +50,13 @@ export class UserProfileComponent implements OnInit {
     this.userProfileService.updateAvatar(uploadImageData).subscribe();
   }
 
+  checkIfIsAvatar(): boolean {
+    if(this.userData.avatar === 'photo') {
+      return false;
+    }
+    return true;
+  }
+
   refresh(): void {
     window.location.reload();
   }

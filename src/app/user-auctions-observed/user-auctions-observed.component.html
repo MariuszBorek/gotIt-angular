@@ -30,6 +30,9 @@
                 </ul>
             </div>
             <div style="clear: both;"></div>
+            <div *ngIf="checkIfWatchedAuctionsIsEmpty()">
+                <div class="text-if-empty">You are not following any auctions yet ;(</div>
+            </div>
         </div>
 
 

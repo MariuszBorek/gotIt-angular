@@ -39,6 +39,13 @@ export class UserAuctionsWonComponent implements OnInit {
 
   }
 
+  checkIfListOfPurchasedAuctionsIsEmpty(): boolean {
+    if(!this.listOfPurchasedAuctions) {
+      return true;
+    }
+    return false;
+  }
+
   ngOnInit(): void {
     this.getProfilData();
   }

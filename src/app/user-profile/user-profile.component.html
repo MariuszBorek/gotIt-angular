@@ -30,7 +30,9 @@
 
             <div class="avatar-container">
                 <div class="img-avatar-photo">
-                    <img class="img-avatar" [src]="photoPath + userData.avatar">
+                    <div *ngIf="checkIfIsAvatar()">
+                        <img class="img-avatar" [src]="photoPath + userData.avatar">
+                    </div>
                 </div>
                 <div class="upload-btn-wrapper">
                     <div>

@@ -41,6 +41,13 @@ export class UserBiddenProductsComponent implements OnInit {
     }
   }
 
+  checkIfAuctionsBidIsEmpty(): boolean {
+    if(!this.userOffers) {
+      return true;
+    }
+    return false;
+  }
+
   ngOnInit(): void {
     this.getProfilData();
   }

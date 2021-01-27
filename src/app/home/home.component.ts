@@ -6,6 +6,7 @@ import { AuctionDTO } from '../interface/AuctionDTO';
 import { AuctionService } from '../service/auction.service';
 import { Router } from '@angular/router';
 import { UserProfileService } from '../service/user-profile.service';
+import { OfferDTO } from '../interface/OfferDTO';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
   watchedAuctions: AuctionDTO[];
   topAuction: AuctionDTO;
   userOffers: AuctionDTO[];
+  highestOffer: OfferDTO;
 
   photoPath = '/assets/images/photos/';
 
@@ -32,6 +34,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['auction-list', choosenCategory.name])
   }
 
+  getHighestBid() {
+    if(this.topAuction.isAuction) {
+      this.auctionService.findHighestOffer(this.topAuction.id)
+      .subscribe(highestOffer => this.highestOffer = highestOffer);
+    }
+  }
+
 
   getCategory() {
     this.homeService.getCategories()
@@ -39,11 +48,13 @@ export class HomeComponent implements OnInit {
   }
 
   goToAuction(auction: AuctionDTO) {
-    this.auctionService.findAuction(auction.id).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
+    this.auctionService.findAuction(auction.id).subscribe(auction =>
+      this.router.navigate(['auction-card', auction.id]));
   }
 
   getWatchedAuctions() {
-    this.userProfileService.findWatchedAuctions().subscribe(watchedAuctions => this.watchedAuctions = watchedAuctions);
+    this.userProfileService.findWatchedAuctions().subscribe(watchedAuctions =>
+      this.watchedAuctions = watchedAuctions);
   }
 
   getUserOffers() {
@@ -53,7 +64,8 @@ export class HomeComponent implements OnInit {
 
   getFiveLastAddedAuctions() {
     this.homeService.findFiveLastAddedAuctions()
-      .subscribe(lastAddedAuctions => this.lastAddedAuctions = lastAddedAuctions);
+      .subscribe(lastAddedAuctions =>
+        this.lastAddedAuctions = lastAddedAuctions);
   }
 
   getFiveEndingAuctions() {
@@ -67,11 +79,25 @@ export class HomeComponent implements OnInit {
   }
   getRandomPremiumAuction() {
     this.homeService.findRandomPremiumAuction()
-      .subscribe(topAuction => this.topAuction = topAuction);
+      .subscribe(topAuction => {
+        this.topAuction = topAuction;
+      });
   }
 
   checkFinishedAuctions(): void {
     this.homeService.markFinishedAuctions().subscribe(e => console.log(e));
+  }
+
+  checkIfWatchedAuctionsIsEmpty(): boolean {
+    return this.watchedAuctions.length === 0;
+  }
+
+  checkIfAuctionsBidIsEmpty(): boolean {
+    console.log(this.userOffers);
+    if(!this.userOffers || this.userOffers == null || this.userOffers.length == 0) {
+      return true;
+    }
+      return false;
   }
 
   getHomeAuctions(): void {
@@ -85,6 +111,7 @@ export class HomeComponent implements OnInit {
       this.getUserOffers();
     }
   }
+
 
   ngOnInit(): void {
     this.getHomeAuctions();

@@ -28,8 +28,12 @@
                         </div>
                     </li>
                 </ul>
+
             </div>
             <div style="clear: both;"></div>
+            <div *ngIf="checkIfListOfPurchasedAuctionsIsEmpty()">
+                <div class="text-if-empty">Empty! Buy something</div>
+            </div>
         </div>
 
 

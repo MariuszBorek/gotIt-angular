@@ -38,6 +38,10 @@ export class UserAuctionsObservedComponent implements OnInit {
     this.auctionService.findAuction(auctionId).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
   }
 
+  checkIfWatchedAuctionsIsEmpty(): boolean {
+    return this.auctionsObserved.length === 0;
+  }
+
   ngOnInit(): void {
     this.getProfilData();
   }

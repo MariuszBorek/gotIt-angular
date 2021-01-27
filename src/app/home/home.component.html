@@ -28,8 +28,8 @@
         <div id="price-top">
             Buy Now: {{ topAuction.buyNowPrice }} zł
         </div>
-        <div id="price-auction-top">
-            Auction: !MINIMALNA CENA! zł
+        <div *ngIf="highestOffer" id="price-auction-top">
+            Auction: {{ highestOffer.price }} zł
         </div>
         <div style="clear: both;"></div>
     </div>
@@ -46,13 +46,15 @@
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
                             <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
-                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: !MINIMALNA CENA! zł</div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b></div>
                         </div>
                         <div style="clear: both;"></div>
-
                     </div>
                 </li>
             </ul>
+            <div *ngIf="checkIfAuctionsBidIsEmpty()">
+                <div class="text-if-empty">You are not bidding anything yet. find auctions and bid!</div>
+            </div>
         </div>
 
         <div class="user-auctions__block">
@@ -66,13 +68,16 @@
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
                             <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
-                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: !MINIMALNA CENA! zł</div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b></div>
                         </div>
                         <div style="clear: both;"></div>
 
                     </div>
                 </li>
             </ul>
+            <div *ngIf="checkIfWatchedAuctionsIsEmpty()">
+                <div class="text-if-empty">You are not following any auctions yet ;(</div>
+            </div>
         </div>
     </div>
 
@@ -89,7 +94,7 @@
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
                             <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
-                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: !MINIMALNA CENA! zł</div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b></div>
                         </div>
                         <div style="clear: both;"></div>
 
@@ -109,13 +114,14 @@
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
                             <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
-                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: !MINIMALNA CENA! zł</div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b></div>
                         </div>
                         <div style="clear: both;"></div>
 
                     </div>
                 </li>
             </ul>
+
         </div>
 
         <div class="user-auctions__block">
@@ -129,7 +135,7 @@
                         <div class="auction-description">
                             <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
                             <div class="item-info"> End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
-                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp;Auction: !MINIMALNA CENA! zł&nbsp;&nbsp; <span class="finished">FINISHED</span></div>
+                            <div class="item-info"> Buy Now: <b>{{ auction.buyNowPrice }} zł</b>&nbsp;&nbsp; <span class="finished">FINISHED</span></div>
                         </div>
                         <div style="clear: both;"></div>
 

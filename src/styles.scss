@@ -71,7 +71,7 @@ input {
     background-color: white;
     margin-top: 20px;
     padding: 10px;
-    min-height: 510px;
+    min-height: 300px;
 }
 
 .profile-descript {
@@ -251,3 +251,8 @@ input {
 }
 
 // end ---- my account sites
+.text-if-empty {
+    color: #767676;
+    margin-top: 100px;
+    text-align: center;
+}
