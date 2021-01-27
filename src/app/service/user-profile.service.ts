@@ -4,6 +4,7 @@ import { UserDTO } from '../interface/UserDTO';
 import { Observable } from 'rxjs';
 import { PurchaseDTO } from '../interface/PurchaseDTO';
 import { AuctionDTO } from '../interface/AuctionDTO';
+import { NewAuctionDTO } from '../interface/NewAuctionDTO';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ export class UserProfileService {
 
   email = sessionStorage.getItem('username');
 
-  baseUrl = 'https://gotit-backend.herokuapp.com';
+  baseUrl = 'http://localhost:8080';
   herokuURL = 'https://gotit-backend.herokuapp.com';
   localHostURL = 'http://localhost:8080';
 
@@ -29,7 +30,7 @@ export class UserProfileService {
     return this.httpClient.get<PurchaseDTO[]>(url);
   }
 
-  findWatchedAuctions(): Observable<AuctionDTO[]>  {
+  findWatchedAuctions(): Observable<AuctionDTO[]> {
     const url = `${this.baseUrl}/api/watched-auctions/${this.email}`;
     return this.httpClient.get<AuctionDTO[]>(url);
   }
@@ -40,8 +41,7 @@ export class UserProfileService {
   }
 
   updateAvatar(uploadImageData: FormData): any {
-    const email = sessionStorage.getItem('username');
-    return this.httpClient.post(`${this.baseUrl}/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' });
+    return this.httpClient.post(`${this.baseUrl}/image/upload-avatar/${this.email}`, uploadImageData, { observe: 'response' });
   }
 
   findUserPostedAuctions(): Observable<AuctionDTO[]> {
@@ -49,9 +49,9 @@ export class UserProfileService {
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
-
-
-
-
+  createUserAuction(newCreatedAuction: NewAuctionDTO, uploadImageData: FormData): any {
+    const url = `${this.baseUrl}/api/set-up-auction/${this.email}?category=${newCreatedAuction.category}&title=${newCreatedAuction.title}&description=${newCreatedAuction.description}&minPrice=${newCreatedAuction.minPrice}&buyNowPrice=${newCreatedAuction.buyNowPrice}&promotedAuction=${newCreatedAuction.promotedAuction}&endDate=${newCreatedAuction.endDate}&isAuction=${newCreatedAuction.isAuction}`;
+    return this.httpClient.post<any>(url, uploadImageData, { observe: 'response' });
+  }
 
 }

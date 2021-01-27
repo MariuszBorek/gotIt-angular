@@ -23,7 +23,7 @@
             <img class="photo-top-picture" [src]="photoPath + topAuction.photo">
         </div>
         <div id="title-top">
-            {{ topAuction.title }}
+            <button class="auction-button" (click)="goToAuction(topAuction);">{{ topAuction.title }}</button>
         </div>
         <div id="price-top">
             Buy Now: {{ topAuction.buyNowPrice }} zł

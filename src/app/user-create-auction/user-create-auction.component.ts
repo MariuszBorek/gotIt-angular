@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CategoryDTO } from '../interface/CategoryDTO';
 import { NewAuctionDTO } from '../interface/NewAuctionDTO';
 import { HomeService } from '../service/home.service';
+import { UserProfileService } from '../service/user-profile.service';
 
 @Component({
   selector: 'app-user-create-auction',
@@ -12,46 +13,26 @@ import { HomeService } from '../service/home.service';
 })
 export class UserCreateAuctionComponent implements OnInit {
 
-  baseUrl = 'https://gotit-backend.herokuapp.com';
   newCreatedAuction = new NewAuctionDTO('', '', '', '', '', false, 0, false);
   categories: CategoryDTO[];
   selectedFile: File;
-  message: string;
 
-  constructor(private httpClient: HttpClient, private homeService: HomeService) { }
+  constructor(private homeService: HomeService, private userProfileService: UserProfileService) { }
 
   getCategory() {
     this.homeService.getCategories()
       .subscribe(categories => { this.categories = categories, console.log(categories); });
   }
 
-
   public onFileChanged(event) {
     this.selectedFile = event.target.files[0];
   }
 
-
   onUploadAuction() {
-    console.log(this.selectedFile);
-    console.log(this.newCreatedAuction);
-
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    this.userProfileService.createUserAuction(this.newCreatedAuction, uploadImageData).subscribe(res => console.log('ok'));
 
-
-    const email = sessionStorage.getItem('username');
-    const url = `${this.baseUrl}/api/set-up-auction/${email}?category=${this.newCreatedAuction.category}&title=${this.newCreatedAuction.title}&description=${this.newCreatedAuction.description}&minPrice=${this.newCreatedAuction.minPrice}&buyNowPrice=${this.newCreatedAuction.buyNowPrice}&promotedAuction=${this.newCreatedAuction.promotedAuction}&endDate=${this.newCreatedAuction.endDate}&isAuction=${this.newCreatedAuction.isAuction}`;
-    console.log(url);
-    this.httpClient.post(url, uploadImageData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) {
-          this.message = 'Image uploaded successfully';
-        } else {
-          this.message = 'Image not uploaded successfully';
-        }
-        this.refresh();
-      }
-      );
   }
 
   refresh(): void {

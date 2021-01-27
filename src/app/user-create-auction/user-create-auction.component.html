@@ -24,9 +24,6 @@
                 </div>
 
                 <input type="text" placeholder="title" name="title" [(ngModel)]="newCreatedAuction.title">
-
-
-                <input type="text" placeholder="minPrice" name="minPrice" [(ngModel)]="newCreatedAuction.minPrice">
                 <input type="text" placeholder="buyNowPrice" name="buyNowPrice" [(ngModel)]="newCreatedAuction.buyNowPrice">
 
 
@@ -46,24 +43,25 @@
 
                 <div class="btn-container">
                     <div>premium:</div>
-                    <input class="choose-tag" type="checkbox" placeholder="promotedAuction" name="promotedAuction" [(ngModel)]="newCreatedAuction.promotedAuction">
+                    <div>
+                        <input class="choose-tag" type="checkbox" placeholder="promotedAuction" name="promotedAuction" [(ngModel)]="newCreatedAuction.promotedAuction">
+                    </div>
+
                 </div>
 
                 <div class="btn-container">
                     <div>select if is Auction:</div>
                     <input class="choose-tag" type="checkbox" placeholder="promotedAuction" name="isAuction" [(ngModel)]="newCreatedAuction.isAuction">
+                    <div *ngIf="newCreatedAuction.isAuction">
+                        <input type="text" placeholder="minPrice" name="minPrice" [(ngModel)]="newCreatedAuction.minPrice">
+                    </div>
                 </div>
 
             </div>
 
-
-
             <div class="description-area">
                 <textarea class="textarea-tag" rows="40" cols="65" type="text" placeholder="description" name="description" [(ngModel)]="newCreatedAuction.description"></textarea>
             </div>
-
-
-
 
             <div class="upload-btn-wrapper">
                 <div>
