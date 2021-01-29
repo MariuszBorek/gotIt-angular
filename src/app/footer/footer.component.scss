@@ -7,6 +7,7 @@ footer {
 #nav-conteiner {
     width: 970px;
     margin-top: 15px;
+    height: 120px;
     background-color: #3a4e58;
     margin-left: auto;
     margin-right: auto;
@@ -14,19 +15,20 @@ footer {
 
 .contact {
     padding: 15px;
-    margin-left: 48px;
+    margin-left: 15px;
+    float: left;
 }
 
 #logo {
     display: flex;
     float: left;
     outline: none;
-    margin-top: 15px;
+    margin-top: 60px;
     margin-bottom: 13px;
     font-size: 35px;
     font-weight: bold;
-    margin-left: 85%;
-    margin-bottom: 30px;
+    margin-left: 35%;
+    margin-bottom: 15px;
 }
 
 .home-button {

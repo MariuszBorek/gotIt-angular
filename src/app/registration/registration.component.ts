@@ -23,6 +23,9 @@ export class RegistrationComponent implements OnInit {
   city: string;
   avatar: string;
 
+  repeatedPassword: string;
+  paswordMessage: string;
+
   selectedFile: File;
   imgURL: any;
   retrievedImage: any;
@@ -45,10 +48,14 @@ export class RegistrationComponent implements OnInit {
       this.city,
       this.avatar);
 
-    this.registrationService.createUser(userDTO)
-      .subscribe(data => {
-        this.router.navigate(['home']);
-      });
+      if(this.repeatedPassword == this.password) {
+        this.registrationService.createUser(userDTO)
+        .subscribe(data => {
+          this.router.navigate(['login']);
+        });
+      } else {
+        this.paswordMessage = 'passwords do not match!';
+      }
   };
 
   public onFileChanged(event) {

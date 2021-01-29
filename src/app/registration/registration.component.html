@@ -5,7 +5,9 @@
                 Registration
             </div>
             <input type="text" [(ngModel)]="email" placeholder="email" name="email" id="email">
-            <input type="text" [(ngModel)]="password" placeholder="password" name="password" id="password">
+            <input type="password" [(ngModel)]="password" placeholder="password" name="password" id="password">
+            <input type="password" [(ngModel)]="repeatedPassword" placeholder="repaet password" name="password" id="repeat-password">
+            <div class="paswordMessage">{{ paswordMessage }}</div>
             <input type="text" [(ngModel)]="name" placeholder="name" name="name" id="name">
             <input type="text" [(ngModel)]="surname" placeholder="surname" name="surname" id="surname">
             <input type="text" [(ngModel)]="street" placeholder="street" name="street" id="street">
@@ -14,20 +16,7 @@
             <input type="text" [(ngModel)]="province" placeholder="province" name="province" id="province">
             <input type="text" [(ngModel)]="city" placeholder="city" name="city" id="city">
             <button class="create-buttom" (click)="createUser()">create</button>
+
         </div>
     </form>
-
-
-
-
-    <!-- <div class="upload-avatar">
-        <div class="upload-btn-wrapper">
-            <button class="btn-choose" value="upload">choose a file</button>
-            <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
-            <button class="btn-upload" (click)="onUpload()" value="upload">Upload</button>
-        </div>
-    </div> -->
-
-
-
 </div>

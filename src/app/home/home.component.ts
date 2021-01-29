@@ -27,17 +27,25 @@ export class HomeComponent implements OnInit {
   highestOffer: OfferDTO;
 
   photoPath = '/assets/images/photos/';
+  systemPath = '/assets/images/system/';
 
   constructor(private homeService: HomeService, public authenticationService: AuthenticationService, private auctionService: AuctionService, private router: Router, private userProfileService: UserProfileService) { }
 
+  isCategoriesEmpty(): boolean {
+    if (!this.categories) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   goToCategory(choosenCategory: CategoryDTO) {
     this.router.navigate(['auction-list', choosenCategory.name])
   }
 
   getHighestBid() {
-    if(this.topAuction.isAuction) {
+    if (this.topAuction.isAuction) {
       this.auctionService.findHighestOffer(this.topAuction.id)
-      .subscribe(highestOffer => this.highestOffer = highestOffer);
+        .subscribe(highestOffer => this.highestOffer = highestOffer);
     }
   }
 
@@ -58,8 +66,8 @@ export class HomeComponent implements OnInit {
   }
 
   getUserOffers() {
-      this.auctionService.findUserOffers().subscribe(userOffers =>
-        this.userOffers = userOffers);
+    this.auctionService.findUserOffers().subscribe(userOffers =>
+      this.userOffers = userOffers);
   }
 
   getFiveLastAddedAuctions() {
@@ -94,10 +102,10 @@ export class HomeComponent implements OnInit {
 
   checkIfAuctionsBidIsEmpty(): boolean {
     console.log(this.userOffers);
-    if(!this.userOffers || this.userOffers == null || this.userOffers.length == 0) {
+    if (!this.userOffers || this.userOffers == null || this.userOffers.length == 0) {
       return true;
     }
-      return false;
+    return false;
   }
 
   getHomeAuctions(): void {
