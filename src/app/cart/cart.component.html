@@ -19,5 +19,8 @@
                 </li>
             </ul>
         </div>
+        <div *ngIf="checkIfCartIsEmpty()">
+            <div class="text-if-empty">Your shopping cart is empty :( <br>Go to the auction and add it to your cart.</div>
+        </div>
     </div>
 </div>

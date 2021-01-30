@@ -28,7 +28,9 @@ export class UserProfileComponent implements OnInit {
 
   getProfilData() {
     this.userProfileService.getUserData()
-      .subscribe(userData => this.userData = userData);
+      .subscribe(userData => {
+        this.userData = userData
+      });
 
   }
 
@@ -63,6 +65,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfilData();
+
   }
 
 }

@@ -64,4 +64,9 @@ export class AuctionService {
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
+  findWatchedAuctions(): Observable<AuctionDTO[]> {
+    const url = `${this.baseUrl}/auction/watched-auctions/${this.getUserEmail()}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
 }

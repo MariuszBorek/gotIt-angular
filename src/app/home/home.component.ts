@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   }
 
   getWatchedAuctions() {
-    this.userProfileService.findWatchedAuctions().subscribe(watchedAuctions =>
+    this.auctionService.findWatchedAuctions().subscribe(watchedAuctions =>
       this.watchedAuctions = watchedAuctions);
   }
 

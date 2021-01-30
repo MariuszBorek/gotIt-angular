@@ -28,7 +28,7 @@ export class UserAuctionsObservedComponent implements OnInit {
   }
 
   getAuctionsObserved() {
-    this.userProfileService.findWatchedAuctions()
+    this.auctionService.findWatchedAuctions()
       .subscribe(auctionsObserved =>
         this.auctionsObserved = auctionsObserved);
 
@@ -39,7 +39,10 @@ export class UserAuctionsObservedComponent implements OnInit {
   }
 
   checkIfWatchedAuctionsIsEmpty(): boolean {
-    return this.auctionsObserved.length === 0;
+    if(!this.auctionsObserved || this.auctionsObserved == null || this.auctionsObserved.length == 0) {
+      return true;
+    }
+    return false;
   }
 
   ngOnInit(): void {

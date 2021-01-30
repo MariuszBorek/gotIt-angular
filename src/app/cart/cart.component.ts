@@ -17,6 +17,12 @@ export class CartComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router, private userProfileService: UserProfileService) { }
 
+  checkIfCartIsEmpty(): boolean {
+    if (!this.ListOfProducts || this.ListOfProducts == null || this.ListOfProducts.length == 0) {
+      return true;
+    }
+    return false;
+  }
 
   goToAuction(auction: AuctionDTO) {
     this.auctionService.findAuction(auction.id).subscribe(auction => this.router.navigate(['auction-card', auction.id]));
