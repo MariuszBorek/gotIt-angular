@@ -12,10 +12,8 @@ import { NewAuctionDTO } from '../interface/NewAuctionDTO';
 })
 export class UserProfileService {
 
-  // email = sessionStorage.getItem('username');
-
-  // baseUrl = 'https://gotit-backend.herokuapp.com';
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://gotit-backend.herokuapp.com';
+  // baseUrl = 'http://localhost:8080';
 
 
   constructor(private httpClient: HttpClient) { }

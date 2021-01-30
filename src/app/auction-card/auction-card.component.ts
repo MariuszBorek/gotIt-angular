@@ -90,7 +90,6 @@ export class AuctionCardComponent implements OnInit {
   ngOnInit(): void {
     this.auctionId = parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     this.getAuctionDetails();
-
   }
 
 }
