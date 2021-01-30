@@ -22,6 +22,7 @@ import { UserAuctionsWonComponent } from './user-auctions-won/user-auctions-won.
 import { UserAuctionsComponent } from './user-auctions/user-auctions.component';
 import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-products.component';
 import { FooterComponent } from './footer/footer.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FooterComponent } from './footer/footer.component';
     UserAuctionsWonComponent,
     UserAuctionsComponent,
     UserBiddenProductsComponent,
-    FooterComponent
+    FooterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

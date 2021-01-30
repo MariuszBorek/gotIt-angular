@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuctionDTO } from '../interface/AuctionDTO';
 import { AuctionService } from '../service/auction.service';
 import { OfferDTO } from '../interface/OfferDTO';
+import { UserProfileService } from '../service/user-profile.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-auction-card',
@@ -23,7 +25,7 @@ export class AuctionCardComponent implements OnInit {
   highestOffer: OfferDTO;
 
 
-  constructor(private activatedRoute: ActivatedRoute, private auctionService: AuctionService, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private userProfileService: UserProfileService, private auctionService: AuctionService, private router: Router) { }
 
   getAuctionDetails() {
     this.auctionService.findAuction(this.auctionId).subscribe(auction => {
@@ -57,9 +59,13 @@ export class AuctionCardComponent implements OnInit {
 
   }
 
-
   addToCart() {
-    console.log('added to cart');
+    if(sessionStorage.getItem('username') != null) {
+      this.userProfileService.addAuctiontoCart(this.auctionId).subscribe(e => console.log(e));
+      location.reload();
+    } else {
+      alert('you have to be logged');
+    }
   }
 
   watchAuction() {

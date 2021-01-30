@@ -14,6 +14,7 @@ import { UserAuctionsObservedComponent } from './user-auctions-observed/user-auc
 import { UserAuctionsWonComponent } from './user-auctions-won/user-auctions-won.component';
 import { UserAuctionsComponent } from './user-auctions/user-auctions.component';
 import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-products.component';
+import { CartComponent } from './cart/cart.component';
 
 
 const routes: Routes = [
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'user-auctions-observed', component: UserAuctionsObservedComponent, canActivate:[AuthGuardService] },
   { path: 'user-auctions-won', component: UserAuctionsWonComponent, canActivate:[AuthGuardService] },
   { path: 'user-auctions', component: UserAuctionsComponent, canActivate:[AuthGuardService] },
-  { path: 'user-bidden-products', component: UserBiddenProductsComponent, canActivate:[AuthGuardService] }
+  { path: 'user-bidden-products', component: UserBiddenProductsComponent, canActivate:[AuthGuardService] },
+  { path: 'user-cart', component: CartComponent, canActivate:[AuthGuardService] }
 ];
 
 @NgModule({

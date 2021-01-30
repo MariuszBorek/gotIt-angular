@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
       return true;
     }
   }
+
   goToCategory(choosenCategory: CategoryDTO) {
     this.router.navigate(['auction-list', choosenCategory.name])
   }
@@ -48,7 +49,6 @@ export class HomeComponent implements OnInit {
         .subscribe(highestOffer => this.highestOffer = highestOffer);
     }
   }
-
 
   getCategory() {
     this.homeService.getCategories()

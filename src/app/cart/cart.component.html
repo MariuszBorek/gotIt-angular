@@ -1,0 +1,23 @@
+<div id="container">
+    <div class="data-container">
+
+        <div class="user-auctions__block">
+            <ul class="ul-list">
+                <div class="list-title">cart</div>
+                <li class="li-list" *ngFor="let auction of ListOfProducts">
+                    <div class="single-auction">
+                        <div class="auction-avatar">
+                            <img [src]="photoPath + auction.photo">
+                        </div>
+                        <div class="auction-description">
+                            <button class="auction-button" (click)="goToAuction(auction);">{{ auction.title }}</button>
+                            <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Localization: {{ auction.localization }} </div>
+                            <div class="item-info">Buy Now: <b>{{ auction.buyNowPrice }} zł</b></div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

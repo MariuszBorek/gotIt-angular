@@ -30,7 +30,7 @@
 
             <div id="loggedin-only">
               <div class="nav-button">
-                <button class="nav-button__cart" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/cart">cart</button >
+                <button class="nav-button__cart" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/user-cart">cart <div class="notification">{{ itemsInCart }}</div></button >
               </div>
               <div class="nav-button">
                 <button class="nav-button__profile" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/user-profile">my account</button >
@@ -38,6 +38,7 @@
               <div class="nav-button">
                 <button class="nav-button__logout" *ngIf="authenticationService.isUserLoggedIn()" routerLink="/logout">logout</button >
               </div>
+
           </div>
 
         </nav>

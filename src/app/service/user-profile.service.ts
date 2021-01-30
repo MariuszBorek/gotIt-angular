@@ -54,4 +54,20 @@ export class UserProfileService {
     return this.httpClient.post<any>(url, uploadImageData, { observe: 'response' });
   }
 
+  findAuctionsInCart(): Observable<AuctionDTO[]> {
+    const url = `${this.baseUrl}/api/cart/${this.email}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
+  addAuctiontoCart(auctionId: number): Observable<any> {
+    const url = `${this.baseUrl}/api/add-to-cart/${this.email}/${auctionId}`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
+  checkCartSize(): Observable<number> {
+    const url = `${this.baseUrl}/api/check-cart-size/${this.email}`;
+    return this.httpClient.get<number>(url);
+  }
+
+
 }
