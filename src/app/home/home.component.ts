@@ -97,11 +97,13 @@ export class HomeComponent implements OnInit {
   }
 
   checkIfWatchedAuctionsIsEmpty(): boolean {
-    return this.watchedAuctions.length === 0;
+    if (!this.watchedAuctions || this.watchedAuctions == null || this.watchedAuctions.length == 0) {
+      return true;
+    }
+    return false;
   }
 
   checkIfAuctionsBidIsEmpty(): boolean {
-    console.log(this.userOffers);
     if (!this.userOffers || this.userOffers == null || this.userOffers.length == 0) {
       return true;
     }
@@ -119,7 +121,6 @@ export class HomeComponent implements OnInit {
       this.getUserOffers();
     }
   }
-
 
   ngOnInit(): void {
     this.getHomeAuctions();

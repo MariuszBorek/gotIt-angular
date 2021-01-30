@@ -26,8 +26,9 @@ export class HeaderComponent implements OnInit {
     this.userProfileService.checkCartSize().subscribe(itemsInCart => {
       if(!itemsInCart) {
         this.itemsInCart = 0;
+      } else {
+        this.itemsInCart = itemsInCart
       }
-      this.itemsInCart = itemsInCart
     });
   }
 

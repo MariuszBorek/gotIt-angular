@@ -1,16 +1,10 @@
 .container {
-    min-height: 61%;
+    min-height: 100%;
 }
 
 input {
-    display: flex;
     width: 250px;
     height: 45px;
-    outline: none;
-    border: 1px solid darkgray;
-    margin-bottom: 10px;
-    border-radius: 4px 4px 4px 4px;
-    padding-left: 10px;
 }
 
 .create-buttom {
