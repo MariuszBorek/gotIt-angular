@@ -40,7 +40,7 @@ export class UserAuctionsWonComponent implements OnInit {
   }
 
   checkIfListOfPurchasedAuctionsIsEmpty(): boolean {
-    if(!this.listOfPurchasedAuctions) {
+    if(!this.listOfPurchasedAuctions || this.listOfPurchasedAuctions == null || this.listOfPurchasedAuctions.length == 0) {
       return true;
     }
     return false;

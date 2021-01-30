@@ -42,7 +42,7 @@ export class UserBiddenProductsComponent implements OnInit {
   }
 
   checkIfAuctionsBidIsEmpty(): boolean {
-    if(!this.userOffers) {
+    if(!this.userOffers || this.userOffers == null || this.userOffers.length == 0) {
       return true;
     }
     return false;
