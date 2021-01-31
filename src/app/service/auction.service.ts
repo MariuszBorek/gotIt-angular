@@ -10,8 +10,8 @@ import { OfferDTO } from '../interface/OfferDTO';
 })
 export class AuctionService {
 
-  // baseUrl = 'https://gotit-backend.herokuapp.com';
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://gotit-backend.herokuapp.com';
+  // baseUrl = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -71,6 +71,13 @@ export class AuctionService {
 
   findPremiumAuctions(): Observable<AuctionDTO[]> {
     const url = `${this.baseUrl}/auction/premium-auctions`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
+  findActionsMatchingTheFilters(phrase: string, promotedAuction: boolean, auctionType: string,
+    category: string, minPrice: number, maxPrice: number): Observable<AuctionDTO[]>  {
+    const url = `${this.baseUrl}/auction/filter/${phrase}/${promotedAuction}/${auctionType}/${category}/${minPrice}/${maxPrice}`;
+    console.log(url);
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 

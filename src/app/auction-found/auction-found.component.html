@@ -1,6 +1,59 @@
 <div id="container">
-    <div class="data-container">
+    <div class="filter-field">
+        <div class="filter-title">Filters</div>
 
+        <div class="btn-container">
+            <div class="column">
+                <div class="mark">
+                    <label><input class="choose-tag" type="checkbox" name="promotedAuction" [(ngModel)]="promotedAuction">premium</label>
+                </div>
+
+                <div class="btn-container">
+                    <div class="radio-tag-div">
+                        <input class="choose-tag" type="radio" name="auctionType" value="buyNow" [(ngModel)]="auctionType">
+                        <label>only bouy now auctions</label>
+                    </div>
+                    <div class="radio-tag-div">
+                        <input class="choose-tag" type="radio" name="auctionType" value="bidden" [(ngModel)]="auctionType">
+                        <label>only bidden auctions</label>
+                    </div>
+                    <div class="radio-tag-div">
+                        <input class="choose-tag" type="radio" name="auctionType" value="all" [(ngModel)]="auctionType">
+                        <label>All auctions</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="select-div">
+                    <select class="select-tag" name="category" [(ngModel)]="category">
+                <option selected>Choose category</option>
+                <option *ngFor="let category of categories">{{ category.name }}</option>
+              </select>
+                </div>
+                <div>
+                    <input class="min-max-price" type="number" placeholder="min price" name="minPrice" [(ngModel)]="minPrice">
+                    <input class="min-max-price" type="number" placeholder="max price" name="maxPrice" [(ngModel)]="maxPrice">
+                </div>
+                <div>
+                    <button class="btn-upload" (click)="getAuctionsMatchingTheFilters();">find</button>
+                </div>
+            </div>
+
+            <div style="clear: both;"></div>
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="data-container">
         <div class="user-auctions__block">
             <ul class="ul-list">
                 <div class="list-title">{{ phrase }}</div>

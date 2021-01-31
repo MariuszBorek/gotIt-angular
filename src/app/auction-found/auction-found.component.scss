@@ -12,3 +12,43 @@ img {
     max-height: 80px;
     max-width: 80px;
 }
+
+.filter-field {
+    min-height: 255px;
+    background-color: white;
+    padding-left: 65px;
+}
+
+.filter-title {
+    font-size: 20px;
+    padding-top: 15px;
+}
+
+input {
+    display: inline;
+    height: 20px;
+    margin-bottom: 60px;
+}
+
+.checkbox-label {
+    display: inline;
+}
+
+.column {
+    float: left;
+    width: 280px;
+}
+
+.min-max-price {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.btn-upload {
+    margin-top: 0px;
+    width: 200px;
+}
+
+.choose-tag {
+    margin-bottom: 10px;
+}

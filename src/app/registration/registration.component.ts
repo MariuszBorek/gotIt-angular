@@ -62,23 +62,6 @@ export class RegistrationComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
 
-  // onUpload() {
-  //   const uploadImageData = new FormData();
-  //   uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-
-  //   const email = sessionStorage.getItem('username');
-  //   this.httpClient.post(`http://localhost:8080/image/upload-avatar/${email}`, uploadImageData, { observe: 'response' })
-  //     .subscribe((response) => {
-  //       if (response.status === 200) {
-  //         this.message = 'Image uploaded successfully';
-  //       } else {
-  //         this.message = 'Image not uploaded successfully';
-  //       }
-  //       // this.refresh();
-  //     }
-  //     );
-  // }
-
   ngOnInit(): void {
   }
 

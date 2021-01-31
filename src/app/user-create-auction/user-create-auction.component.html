@@ -36,37 +36,42 @@
                 </div>
 
                 <div class="btn-container">
-                    <div>premium:</div>
                     <div>
                         <input class="choose-tag" type="checkbox" placeholder="promotedAuction" name="promotedAuction" [(ngModel)]="newCreatedAuction.promotedAuction">
+                        <label>premium</label>
                     </div>
 
                 </div>
 
                 <div class="btn-container">
-                    <div>select if is Auction:</div>
+
                     <input class="choose-tag" type="checkbox" placeholder="promotedAuction" name="isAuction" [(ngModel)]="newCreatedAuction.isAuction">
-                    <div *ngIf="newCreatedAuction.isAuction">
-                        <input type="text" placeholder="minPrice" name="minPrice" [(ngModel)]="newCreatedAuction.minPrice">
+                    <label>select if is bidden auction</label>
+                    <div class="price-auction-div">
+                        <div *ngIf="newCreatedAuction.isAuction">
+                            <input type="text" placeholder="minPrice" name="minPrice" [(ngModel)]="newCreatedAuction.minPrice">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="upload-btn-wrapper">
+                    <div>
+                        <div class="info-message">{{ messagePhoto }}</div>
+                        <button class="btn-choose" value="upload">add photo</button>
+                        <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
+                    </div>
+                    <div>
+                        <button class="btn-upload" (click)="onUploadAuction();">set up auction</button>
                     </div>
                 </div>
 
             </div>
 
+
             <div class="description-area">
-                <textarea class="textarea-tag" rows="40" cols="65" type="text" placeholder="description" name="description" [(ngModel)]="newCreatedAuction.description"></textarea>
+                <textarea class="textarea-tag" rows="40" cols="78" type="text" placeholder="description" name="description" [(ngModel)]="newCreatedAuction.description"></textarea>
             </div>
 
-            <div class="upload-btn-wrapper">
-                <div>
-                    <div class="info-message">{{ messagePhoto }}</div>
-                    <button class="btn-choose" value="upload">add photo</button>
-                    <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
-                </div>
-                <div>
-                    <button class="btn-upload" (click)="onUploadAuction();">set up auction</button>
-                </div>
-            </div>
             <div style="clear: both;"></div>
         </div>
     </div>

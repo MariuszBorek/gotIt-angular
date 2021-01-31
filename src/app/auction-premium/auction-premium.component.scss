@@ -28,11 +28,12 @@
 .premium-title {
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 160px;
+    width: 150px;
     height: 1.2em;
     white-space: nowrap;
 }
 
 .list-title {
+    margin-top: 10px;
     margin-left: 15px;
 }
