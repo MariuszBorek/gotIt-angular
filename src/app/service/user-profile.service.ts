@@ -12,8 +12,8 @@ import { NewAuctionDTO } from '../interface/NewAuctionDTO';
 })
 export class UserProfileService {
 
-  baseUrl = 'https://gotit-backend.herokuapp.com';
-  // baseUrl = 'http://localhost:8080';
+  // baseUrl = 'https://gotit-backend.herokuapp.com';
+  baseUrl = 'http://localhost:8080';
 
 
   constructor(private httpClient: HttpClient) { }
@@ -64,6 +64,12 @@ export class UserProfileService {
   checkCartSize(): Observable<number> {
     const url = `${this.baseUrl}/api/check-cart-size/${this.getUserEmail()}`;
     return this.httpClient.get<number>(url);
+  }
+
+  deleteProductFromCart(auctionId): Observable<AuctionDTO[]> {
+    const url = `${this.baseUrl}/api/remove-product-from-cart/${this.getUserEmail()}/${auctionId}`;
+    console.log(url);
+    return this.httpClient.delete<AuctionDTO[]>(url);
   }
 
 

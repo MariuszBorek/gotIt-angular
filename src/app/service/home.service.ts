@@ -9,8 +9,8 @@ import { AuctionDTO } from '../interface/AuctionDTO';
 })
 export class HomeService {
 
-  baseUrl = 'https://gotit-backend.herokuapp.com';
-  // baseUrl = 'http://localhost:8080';
+  // baseUrl = 'https://gotit-backend.herokuapp.com';
+  baseUrl = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) { }
 

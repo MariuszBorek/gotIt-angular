@@ -21,7 +21,7 @@
                             </div>
                             <div class="auction-description">
                                 <button class="auction-button" (click)="goToAuction(auction.id);">{{ auction.title }}</button>
-                                <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Buy now: {{ auction.buyNowPrice }}&nbsp;&nbsp;Visits: {{ auction.numberOfVisits }}</div>
+                                <div class="item-info">End date: {{ auction.endDate }}&nbsp;&nbsp;Buy now: {{ auction.buyNowPrice }} zł&nbsp;&nbsp;Visits: {{ auction.numberOfVisits }}&nbsp;&nbsp;<span class="is-Auction" *ngIf="auction.isAuction">Auction</span></div>
                             </div>
                             <div style="clear: both;"></div>
                         </div>

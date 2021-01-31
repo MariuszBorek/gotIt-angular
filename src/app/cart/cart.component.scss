@@ -12,3 +12,27 @@ img {
     max-height: 80px;
     max-width: 80px;
 }
+
+.auction-description {
+    width: 685px;
+}
+
+.remove-button-container {
+    float: left;
+}
+
+.remove-button {
+    display: inline;
+    justify-content: flex-end;
+    background-color: red;
+    cursor: pointer;
+    width: 55px;
+    height: 25px;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.remove-button:hover {
+    background-color: rgb(255, 104, 104);
+}

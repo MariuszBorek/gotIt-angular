@@ -32,6 +32,10 @@ export class CartComponent implements OnInit {
     this.userProfileService.findAuctionsInCart().subscribe(ListOfProducts => this.ListOfProducts = ListOfProducts);
   }
 
+  removeProductFromCart(auctionId: number) {
+    this.userProfileService.deleteProductFromCart(auctionId).subscribe(ListOfProducts => this.ListOfProducts = ListOfProducts);
+  }
+
 
   ngOnInit(): void {
     this.getUserAuctionsFromCart();
