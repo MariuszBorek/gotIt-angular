@@ -12,7 +12,7 @@
         </div>
 
         <div class="data-container">
-            <div class="profile-descript">Create auction</div>
+            <div class="profile-descript">Create auction <span class="info-message">{{ messageFormData }}</span></div>
 
             <div class="data-changeable">
 
@@ -65,6 +65,7 @@
 
             <div class="upload-btn-wrapper">
                 <div>
+                    <div class="info-message">{{ messagePhoto }}</div>
                     <button class="btn-choose" value="upload">add photo</button>
                     <input class="btn" type="file" (change)="onFileChanged($event)" name="avatar" accept="image/png, image/jpeg" id="avatar-save-button">
                 </div>
