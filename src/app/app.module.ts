@@ -23,6 +23,8 @@ import { UserAuctionsComponent } from './user-auctions/user-auctions.component';
 import { UserBiddenProductsComponent } from './user-bidden-products/user-bidden-products.component';
 import { FooterComponent } from './footer/footer.component';
 import { CartComponent } from './cart/cart.component';
+import { UserAccountNavBarComponent } from './user-account-nav-bar/user-account-nav-bar.component';
+import { AuctionPremiumComponent } from './auction-premium/auction-premium.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { CartComponent } from './cart/cart.component';
     UserAuctionsComponent,
     UserBiddenProductsComponent,
     FooterComponent,
-    CartComponent
+    CartComponent,
+    UserAccountNavBarComponent,
+    AuctionPremiumComponent
   ],
   imports: [
     BrowserModule,

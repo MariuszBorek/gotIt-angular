@@ -2,12 +2,7 @@
     <div id="login-inputs">
 
         <div class="nav-profile">
-            <button class="nav-profile__button" routerLink="/user-profile">profile</button>
-            <button class="nav-profile__button" routerLink="/user-create-auction">create auction</button>
-            <button class="nav-profile__button" routerLink="/user-auctions-observed">auctions observed</button>
-            <button class="nav-profile__button" routerLink="/user-auctions-won">auctions won</button>
-            <button class="nav-profile__button" routerLink="/user-auctions">my auctions</button>
-            <button class="nav-profile__button" routerLink="/user-bidden-products">bidden auctions</button>
+            <app-user-account-nav-bar></app-user-account-nav-bar>
         </div>
         <div class="data-container" *ngIf="userData">
             <div class="profile-descript">My auctions</div>
@@ -33,7 +28,8 @@
                 <div class="text-if-empty">Empty! Create Auction</div>
             </div>
         </div>
-
-
+        <div class="premium-auctions">
+            <app-auction-premium></app-auction-premium>
+        </div>
     </div>
 </div>

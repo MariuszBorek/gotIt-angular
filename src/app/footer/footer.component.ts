@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  imagesPath = '/assets/images/contact/';
-
   constructor() { }
 
   ngOnInit(): void {

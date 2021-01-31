@@ -1,0 +1,18 @@
+<div class="container-premium-auctions">
+    <div class="list-title">Premium auctions</div>
+    <div class="premium-block" *ngFor="let auction of premiumAuctions">
+
+        <div class="single-premium-auction">
+            <div class="premium-auction-avatar">
+                <img class="img-premium-auction" [src]="auctionPhotoPath + auction.photo">
+            </div>
+            <div class="auction-description">
+                <button class="auction-button" (click)="goToAuction(auction);"><div class="premium-title">{{ auction.title }}</div></button>
+                <div class="item-info">Buy Now: <b>{{ auction.buyNowPrice }} zł</b>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</div>

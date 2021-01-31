@@ -69,4 +69,9 @@ export class AuctionService {
     return this.httpClient.get<AuctionDTO[]>(url);
   }
 
+  findPremiumAuctions(): Observable<AuctionDTO[]> {
+    const url = `${this.baseUrl}/auction/premium-auctions`;
+    return this.httpClient.get<AuctionDTO[]>(url);
+  }
+
 }
