@@ -2,13 +2,17 @@
 
 
     <div id="login-inputs">
-        <div class="login-error" *ngIf="invalidLogin">
-            invalid email or password
+        <div class="frame">
+            <div class="login-error" *ngIf="invalidLogin">
+                invalid email or password
+            </div>
+            <input type="text" placeholder="e-mail" name="username" [(ngModel)]="username">
+            <input type="password" placeholder="password" name="password" [(ngModel)]="password">
+            <button class="create-buttom" (click)=checkLogin()>log in</button>
         </div>
-        <input type="text" placeholder="e-mail" name="username" [(ngModel)]="username">
-        <input type="password" placeholder="password" name="password" [(ngModel)]="password">
-        <button class="create-buttom" (click)=checkLogin()>log in</button>
     </div>
 
-
+    <div class="premium-auctions">
+        <app-auction-premium></app-auction-premium>
+    </div>
 </div>

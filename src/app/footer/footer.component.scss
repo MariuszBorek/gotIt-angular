@@ -11,6 +11,7 @@ footer {
     background-color: #3a4e58;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 .contact {
@@ -20,14 +21,13 @@ footer {
 }
 
 #logo {
-    display: flex;
-    float: left;
+    position: absolute;
+    right: 30px;
     outline: none;
     margin-top: 43px;
     margin-bottom: 13px;
     font-size: 35px;
     font-weight: bold;
-    margin-left: 45%;
 }
 
 .home-button {

@@ -1,5 +1,7 @@
 .container {
-    min-height: 100%;
+    width: 970px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 input {
@@ -29,9 +31,17 @@ input {
 
 #login-inputs {
     background-color: white;
+    width: 970px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.frame {
     width: fit-content;
-    padding: 50px;
-    margin-top: 150px;
+    height: fit-content;
     margin-left: auto;
     margin-right: auto;
 }

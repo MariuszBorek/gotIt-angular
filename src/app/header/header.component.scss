@@ -1,7 +1,7 @@
 header {
     margin-left: auto;
     margin-right: auto;
-    height: 75px;
+    min-height: 75px;
     background-color: white;
     border-bottom: 1px solid #dddddd;
     margin-bottom: 15px;
@@ -27,6 +27,7 @@ header {
     width: 970px;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 
 .nav-button {
@@ -35,16 +36,9 @@ header {
     outline: none;
     margin-top: 13px;
     margin-bottom: 13px;
-    &__a {
-        border: 0px;
-        font-size: 20px;
-        color: #767676;
-        margin-top: 10px;
-        margin-left: 15px;
-        background-color: white;
-        cursor: pointer;
-    }
     &__profile {
+        position: absolute;
+        right: 80px;
         border: 0px;
         font-size: 20px;
         color: #767676;
@@ -54,24 +48,28 @@ header {
         cursor: pointer;
     }
     &__cart {
+        position: absolute;
+        right: 207px;
         border: 0px;
         font-size: 20px;
         color: #767676;
         margin-top: 10px;
-        margin-left: 152px;
         background-color: white;
         cursor: pointer;
     }
     &__regist {
+        position: absolute;
+        right: 68px;
         border: 0px;
         font-size: 20px;
         color: #767676;
         margin-top: 10px;
-        margin-left: 275px;
         background-color: white;
         cursor: pointer;
     }
     &__login {
+        position: absolute;
+        right: 0px;
         border: 0px;
         font-size: 20px;
         color: #767676;
@@ -81,6 +79,8 @@ header {
         cursor: pointer;
     }
     &__logout {
+        position: absolute;
+        right: 0px;
         border: 0px;
         font-size: 20px;
         color: #767676;
@@ -184,11 +184,16 @@ header {
         width: 300px;
         border: none;
         outline: none;
+        transition: background-color 5000s ease-in-out 0s;
     }
     &__field:focus {
         border: none;
         border-radius: 0px;
         outline: none;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+    &__field:active {
+        transition: background-color 5000s ease-in-out 0s;
     }
 }
 
