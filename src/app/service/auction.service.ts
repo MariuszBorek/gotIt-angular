@@ -10,8 +10,8 @@ import { OfferDTO } from '../interface/OfferDTO';
 })
 export class AuctionService {
 
-  // baseUrl = 'https://gotit-backend.herokuapp.com';
-  baseUrl = 'http://localhost:8080';
+  baseUrl = 'https://gotit-backend.herokuapp.com';
+  // baseUrl = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) { }
 

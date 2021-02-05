@@ -2,13 +2,13 @@
 
     <div *ngIf="!categories">
         <div class="info-loading-server">
-            <div class="info-text">INFO: Wait about 1 minute for the server to load.</div>
+            <div class="info-text">Wait 1 minute for the server to wake up.<br>Refresh the page if the application does not start.</div>
         </div>
     </div>
 
     <div id="categories">
-        <div id="categories-block"></div>
-        <div>
+        <div class="categories-block"></div>
+        <div class="categories-content">
             <ul id="ul-category">
                 <li id="li-category" *ngFor="let category of categories">
                     <div class="single-cateegory">
@@ -17,12 +17,12 @@
                 </li>
             </ul>
         </div>
-        <div id="categories-block"></div>
+        <div class="categories-block"></div>
     </div>
 
     <div class="user-auctions__greeting">
 
-        <div id="greeting">
+        <div *ngIf="categories" id="greeting">
             Check it out!
         </div>
         <div id="photo-top">

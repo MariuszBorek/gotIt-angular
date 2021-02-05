@@ -14,13 +14,13 @@
     width: 970px;
     color: white;
     background-color: white;
-    min-height: 50px;
+    min-height: 65px;
 }
 
 .info-text {
     padding-top: 15px;
     text-align: center;
-    color: #0471e3;
+    color: red;
 }
 
 .load-container {
@@ -45,8 +45,12 @@
     width: 655px;
 }
 
-#categories-block {
+.categories-block {
     min-height: 20px;
+}
+
+.categories-content {
+    min-height: 528px;
 }
 
 .category-button {
