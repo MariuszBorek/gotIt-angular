@@ -18,6 +18,7 @@
         </div>
         <div class="price-auction">
             <div *ngIf="highestOffer" class="text">Auction: {{ highestOffer.price }} zł</div>
+            <div *ngIf="!highestOffer && auction.isAuction" class="text">Auction: {{ auction.startMinPrice }} zł</div>
         </div>
 
         <div class="localization">
@@ -52,17 +53,18 @@
             <div *ngIf="auction.finished">
                 <button class="action-button__finished">WATCH</button>
             </div>
-            <div>
-                <input class="offer__input__field" type="text" placeholder="Your offer" #offeredPrice>
+            <div *ngIf="auction.isAuction">
+                <div>
+                    <input class="offer__input__field" type="text" placeholder="Your offer" #offeredPrice>
+                </div>
+                <div *ngIf="!auction.finished">
+                    <button class="action-button__bid" (click)="bidAuction(offeredPrice.value);">BID ON</button>
+                    <div *ngIf="highestOffer" class="text-offer">Highest offer: {{ highestOffer.userEmail }}</div>
+                </div>
+                <div *ngIf="auction.finished">
+                    <button class="action-button__finished">BID ON</button>
+                </div>
             </div>
-            <div *ngIf="!auction.finished">
-                <button class="action-button__bid" (click)="bidAuction(offeredPrice.value);">BID ON</button>
-                <div *ngIf="highestOffer" class="text-offer">Highest offer: {{ highestOffer.userEmail }}</div>
-            </div>
-            <div *ngIf="auction.finished">
-                <button class="action-button__finished">BID ON</button>
-            </div>
-
 
         </div>
         <div style="clear: both;"></div>

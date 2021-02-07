@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   userOffers: AuctionDTO[];
   highestOffer: OfferDTO;
 
+  isAwake: string;
+
   photoPath = '/assets/images/photos/';
   systemPath = '/assets/images/system/';
 
@@ -121,8 +123,12 @@ export class HomeComponent implements OnInit {
       this.getUserOffers();
     }
   }
+  private onWakeUpServer() {
+    this.homeService.wakeUpServer().subscribe(isAwake => this.isAwake = isAwake);
+  }
 
   ngOnInit(): void {
+    this.onWakeUpServer();
     this.getHomeAuctions();
     this.getRandomPremiumAuction();
     this.checkFinishedAuctions();

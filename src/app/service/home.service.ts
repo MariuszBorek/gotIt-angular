@@ -44,6 +44,10 @@ export class HomeService {
     return this.httpClient.get<boolean>(url);
   }
 
+  wakeUpServer(): Observable<string> {
+    const url = `${this.baseUrl}/api/wake-up`;
+    return this.httpClient.get<string>(url);
+  }
 
 
 

@@ -6,6 +6,7 @@ export class AuctionDTO {
     public photo: string,
     public category: string,
     public buyNowPrice: string,
+    public startMinPrice: string,
     public promotedAuction: boolean,
     public localization: string,
     public dateOfIssue: Date,
